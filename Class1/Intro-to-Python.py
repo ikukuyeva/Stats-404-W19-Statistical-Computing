@@ -913,6 +913,8 @@ list(zip(ex_list, ex_tuple))
 
 # ## Debugger
 
+# ![Debugging Cartoon](./images/debugging_cartoon.jpg)[[2]](https://www.reddit.com/r/ProgrammerHumor/comments/bwsfwy/fun_for_the_whole_team/)
+
 # (Very brief) Overview of debugging in Python -- not via `print()` statements:
 # 
 # **1. Starting debugger**
