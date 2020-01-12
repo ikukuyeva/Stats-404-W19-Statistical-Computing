@@ -98,7 +98,10 @@ grade
 
 
 # ## Comments
-# Tip: Add an in-line comment to your code to explain 'why' that line of code is the way it is, esp. if it's not obvious from reading the code.
+# **Tip**: Add an in-line comment to your code to explain 'why' that line of code is the way it is, esp. if it's not obvious from reading the code.
+#   - EX: Explain "Magic numbers" in code
+# 
+# **Tip**: Keep comments up-to-date
 
 
 
@@ -208,12 +211,13 @@ def my_awesome_function(x):
 
 
 # In[67]:
-# Note: `"""Example of function with parameters."""` is called a docstring, which can be turned into Python documentation (more on thsi below). Recommendation for what to include in a docstring:
-# - description of function
-# - explanation of function arguments and return values
-# - example usage
+# - `"""Example of function with parameters."""` is called a docstring, which can be turned into Python documentation (more on this below). 
+# - Recommendation for what to include in a docstring: 
+#   - description of function
+#   - explanation of function arguments and return values
+#   - example usage
+# - Please see [PEP 257](https://www.python.org/dev/peps/pep-0257/) for Docstring Conventions.
 
-# [PEP 257](https://www.python.org/dev/peps/pep-0257/) for Docstring Conventions.
 
 
 my_awesome_function(3)
@@ -249,6 +253,8 @@ result
 # `create_filename_with_timestamp()` vs `format_string()`.
 # 
 # What's a better name for `my_awesome_function()`?
+
+# Why do we need functions?
 
 # ### Loading Third-Party Functions/Modules
 
@@ -639,7 +645,7 @@ dictionary1 == dictionary2
 course_information = {'name': 'Statistical Computing and Programming',
                       'number': 404,
                       'instructor': 'Irina Kukuyeva',
-                      'TA': 'Hao Wang'
+                      'TA': 'Theja Voora Naga Sree'
                      }
 
 
@@ -907,6 +913,8 @@ list(zip(ex_list, ex_tuple))
 
 # ## Debugger
 
+# ![Debugging Cartoon](./images/debugging_cartoon.jpg)[[2]](https://www.reddit.com/r/ProgrammerHumor/comments/bwsfwy/fun_for_the_whole_team/)
+
 # (Very brief) Overview of debugging in Python -- not via `print()` statements:
 # 
 # **1. Starting debugger**
@@ -932,7 +940,7 @@ list(zip(ex_list, ex_tuple))
 # **4. References**
 # Please see:
 # - [pdb documentation](https://docs.python.org/3/library/pdb.html) for more debugger commands
-# - Type `%lsmagic` to see all available magic methods and see [IPyhton documentation](https://ipython.readthedocs.io/en/stable/interactive/magics.html) for other notebook magic commands
+# - Type `%lsmagic` to see all available magic methods and see [IPython documentation](https://ipython.readthedocs.io/en/stable/interactive/magics.html) for other notebook magic commands
 # 
 
 
@@ -957,6 +965,7 @@ my_awesome_function('a')
 
 # ## Getting Help
 
+# **Step 0**: Check internal documentation
 
 
 get_ipython().run_line_magic('pinfo', 'randint')
@@ -968,25 +977,31 @@ get_ipython().run_line_magic('pinfo', 'my_awesome_function')
 help(random.randint)
 
 
-# Tip: When all else fails, Google your error:
-# 
+# **Step 1**: Check external documenation, e.g. Google your error
+
 # EX: `TypeError: can only concatenate str (not "int") to str`
 
-# # In-Class Lab -- Due at end of class:
+# **Step 2**: Reach out for help, per [Class 0 quidelines](http://bit.ly/2SPtCVi)
 
-# **Lab**: Coding Tic-Tac-Toe, per: https://automatetheboringstuff.com/chapter5/
+# # In-Class Lab -- Due next Wednesday
+
+# **Due**: January 22, before class (by 6PM)
+
+# **Lab**: Coding Tic-Tac-Toe [[1]](https://automatetheboringstuff.com/chapter5/)
 # - Set-up a Tic-Tac-Toe board as a dictionary: 
 # ```
-# theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
-#               'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
-#               'low-L': ' ', 'low-M': ' ', 'low-R': ' '
-#              }
+# board = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+#            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+#            'low-L': ' ', 'low-M': ' ', 'low-R': ' '
+#         }
 # ```
 # - Use the [random module](https://docs.python.org/3/library/random.html) to randomly choose (available) locations for (alternating) placing of `X` and `O`. *Hint*: use a seed.
+# -`print()` out board with every turn
 # - Declare winner or tie
-# 
+# - If there’s a win, tell us how many steps it took
+
 # **Submitting your lab**:
-# - Create branch in your *forked* copy on class repository
+# - Create branch `feature/LAB1` in [class](https://github.com/UCLA-Stats-404-W20) repository
 # - Commit your solution
 # - Create pull request relative to *your* master branch
 # - Assign me and TA as reviewers
