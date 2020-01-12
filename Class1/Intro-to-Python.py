@@ -645,7 +645,7 @@ dictionary1 == dictionary2
 course_information = {'name': 'Statistical Computing and Programming',
                       'number': 404,
                       'instructor': 'Irina Kukuyeva',
-                      'TA': 'Hao Wang'
+                      'TA': 'Theja Voora Naga Sree'
                      }
 
 
@@ -938,7 +938,7 @@ list(zip(ex_list, ex_tuple))
 # **4. References**
 # Please see:
 # - [pdb documentation](https://docs.python.org/3/library/pdb.html) for more debugger commands
-# - Type `%lsmagic` to see all available magic methods and see [IPyhton documentation](https://ipython.readthedocs.io/en/stable/interactive/magics.html) for other notebook magic commands
+# - Type `%lsmagic` to see all available magic methods and see [IPython documentation](https://ipython.readthedocs.io/en/stable/interactive/magics.html) for other notebook magic commands
 # 
 
 
@@ -979,9 +979,11 @@ help(random.randint)
 
 # EX: `TypeError: can only concatenate str (not "int") to str`
 
-# # In-Class Lab -- Due at end of class:
 # **Step 2**: Reach out for help, per [Class 0 quidelines](http://bit.ly/2SPtCVi)
 
+# # In-Class Lab -- Due next Wednesday
+
+# **Due**: January 22, before class (by 6PM)
 
 # **Lab**: Coding Tic-Tac-Toe [[1]](https://automatetheboringstuff.com/chapter5/)
 # - Set-up a Tic-Tac-Toe board as a dictionary: 
