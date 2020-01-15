@@ -982,26 +982,3 @@ help(random.randint)
 # EX: `TypeError: can only concatenate str (not "int") to str`
 
 # **Step 2**: Reach out for help, per [Class 0 quidelines](http://bit.ly/2SPtCVi)
-
-# # In-Class Lab -- Due next Wednesday
-
-# **Due**: January 22, before class (by 6PM)
-
-# **Lab**: Coding Tic-Tac-Toe [[1]](https://automatetheboringstuff.com/chapter5/)
-# - Set-up a Tic-Tac-Toe board as a dictionary: 
-# ```
-# board = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
-#            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
-#            'low-L': ' ', 'low-M': ' ', 'low-R': ' '
-#         }
-# ```
-# - Use the [random module](https://docs.python.org/3/library/random.html) to randomly choose (available) locations for (alternating) placing of `X` and `O`. *Hint*: use a seed.
-# -`print()` out board with every turn
-# - Declare winner or tie
-# - If there’s a win, tell us how many steps it took
-
-# **Submitting your lab**:
-# - Create branch `feature/LAB1` in [class](https://github.com/UCLA-Stats-404-W20) repository
-# - Commit your solution
-# - Create pull request relative to *your* master branch
-# - Assign me and TA as reviewers
