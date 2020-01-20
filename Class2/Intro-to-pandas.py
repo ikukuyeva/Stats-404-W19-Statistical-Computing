@@ -190,7 +190,8 @@ df_tmp[df_tmp['col_name'] == 5]['col_name'] = -5
 # In[27]:
 
 
-df.loc[df['ArrDelay'] >= 90, ['Year', 'Month', 'DayofMonth', 'DayOfWeek', 'ArrDelay', 'DepDelay']]
+cols_include = ['Year', 'Month', 'DayofMonth', 'DayOfWeek', 'ArrDelay', 'DepDelay']
+df.loc[df['ArrDelay'] >= 90, cols_include]
 
 
 # ### Subsetting with `iloc` -- based on "**i**ndex":
