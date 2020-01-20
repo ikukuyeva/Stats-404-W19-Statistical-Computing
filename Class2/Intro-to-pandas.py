@@ -524,7 +524,9 @@ pysqldf = lambda q: sqldf(q, globals())
 # In[320]:
 
 
-pysqldf("""SELECT Origin, Dest, count(*) 
+pysqldf("""SELECT Origin,
+                  Dest,
+                  count(*) as n
            FROM df_origin_dest_LA
            GROUP BY Origin, Dest;""")
 
