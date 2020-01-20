@@ -502,7 +502,7 @@ df[['Origin', 'ArrDelay', 'DepDelay']].groupby('Origin').apply(
 
 # ## Prerequisites for Next Section: SQL
 # 
-# **Please see slide [deck](https://goo.gl/JkLxHq)** for installation instructions of SQLite
+# **Please see slide [deck](http://bit.ly/30CPeVe)** for installation instructions of SQLite
 # 
 # ## 10 minute break
 
