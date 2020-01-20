@@ -39,7 +39,9 @@ df_tmp['col_name'].values
 
 
 df_tmp.index
-# ## Reading-in Data
+
+
+# ## Reading-in Airlines Data for [Business use case](https://docs.google.com/presentation/d/1zOOBaxZtTF_FJat9uGKrgJvMSMzmXQVtO4Vl5J-CpAw/edit#slide=id.g763bd8f17d_0_288)
 file_name = "https://s3.amazonaws.com/h2o-airlines-unpacked/year1987.csv"
 df = pd.read_csv(filepath_or_buffer=file_name,
                  encoding='latin-1',
@@ -190,7 +192,8 @@ df_tmp[df_tmp['col_name'] == 5]['col_name'] = -5
 # In[27]:
 
 
-df.loc[df['ArrDelay'] >= 90, ['Year', 'Month', 'DayofMonth', 'DayOfWeek', 'ArrDelay', 'DepDelay']]
+cols_include = ['Year', 'Month', 'DayofMonth', 'DayOfWeek', 'ArrDelay', 'DepDelay']
+df.loc[df['ArrDelay'] >= 90, cols_include]
 
 
 # ### Subsetting with `iloc` -- based on "**i**ndex":
@@ -481,6 +484,7 @@ df.loc[df['ArrDelay'] >= 0].groupby(
 
 
 # Largest delay type by flightpath origin:
+import math
 
 def largest_delay(variables):
     max_arrival_delay = max(variables.ArrDelay)
@@ -499,7 +503,7 @@ df[['Origin', 'ArrDelay', 'DepDelay']].groupby('Origin').apply(
 
 # ## Prerequisites for Next Section: SQL
 # 
-# **Please see slide [deck](https://goo.gl/JkLxHq)** for installation instructions of SQLite
+# **Please see slide [deck](http://bit.ly/30CPeVe)** for installation instructions of SQLite
 # 
 # ## 10 minute break
 
@@ -521,7 +525,9 @@ pysqldf = lambda q: sqldf(q, globals())
 # In[320]:
 
 
-pysqldf("""SELECT Origin, Dest, count(*) 
+pysqldf("""SELECT Origin,
+                  Dest,
+                  count(*) as n
            FROM df_origin_dest_LA
            GROUP BY Origin, Dest;""")
 
