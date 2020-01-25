@@ -381,6 +381,21 @@ inspect.signature(pd.concat)
 pd.concat([df1, df2], axis=1, join='inner')
 
 
+# Example to illustate `axis`:
+
+
+
+df1
+
+
+
+
+df1.apply(lambda x: x/sum(x), axis=0)
+
+
+
+
+df1.apply(lambda x: x/sum(x), axis=1)
 
 
 # In[53]:
