@@ -313,6 +313,8 @@ df[['ArrDelay', 'IsArrDelayed', 'DepDelay', 'IsDepDelayed', 'delay_count']].head
 # 
 # For more examples on concatenating and merging, please see: [pandas documentation](https://pandas.pydata.org/pandas-docs/stable/merging.html)
 
+# ![Visualization of Joins](images/joins.png)[[reference]](https://www.dofactory.com/sql/join)
+
 # ### Example data sets
 
 # In[51]:
@@ -379,11 +381,10 @@ inspect.signature(pd.concat)
 pd.concat([df1, df2], axis=1, join='inner')
 
 
-# ### Merging and Joining
 
-# ![Visualization of Joins](images/joins.png)[[reference]](https://www.dofactory.com/sql/join)
 
 # In[53]:
+# ### Merging and Joining
 
 
 pd.merge(left=df1,
