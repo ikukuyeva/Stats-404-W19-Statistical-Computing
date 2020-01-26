@@ -405,6 +405,10 @@ intercept = intercept_df['coef_est'].values.tolist()[0]
 intercept
 
 
+# More on odds vs probabilities [here](https://stats.idre.ucla.edu/stata/faq/how-do-i-interpret-odds-ratios-in-logistic-regression/)
+
+# ![Inverse logit](./images/Inverse-logit.png)[Wikipedia](https://en.wikipedia.org/wiki/Logit)
+
 def inverse_logit(intercept, coefficient):
     """Fcn to help calculate probability associated with flight delay,
        given our variable.
