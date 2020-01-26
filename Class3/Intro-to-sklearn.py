@@ -298,6 +298,7 @@ df_train, df_valid = train_test_split(df_tmp,
 
 
 # In[79]:
+# What are the train, validation, test percentages here?
 
 
 df_train['compensated_delays'].value_counts(sort=False)
@@ -565,6 +566,8 @@ roc_auc_score(y_true=y_valid,
 f1_score(y_true=y_valid,
          y_pred=y_pred_valid)
 
+
+# How did out-of-sample compare?
 
 # ## Step 9: Determine Next Steps
 
