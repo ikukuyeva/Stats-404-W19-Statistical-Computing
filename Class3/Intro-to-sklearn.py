@@ -220,7 +220,9 @@ df['Dep_Hour'].value_counts(sort=False)
 # In[65]:
 
 
-features_tod = pd.get_dummies(df['Dep_Hour'], drop_first=True, prefix="tod_")
+features_tod = pd.get_dummies(df['Dep_Hour'],
+                              drop_first=True,
+                              prefix="tod_")
 
 
 # In[66]:
@@ -232,13 +234,17 @@ features_tod.head()
 # In[67]:
 
 
-features_month = pd.get_dummies(df['Month'], drop_first=True, prefix="mo_")
+features_month = pd.get_dummies(df['Month'],
+                                drop_first=True,
+                                prefix="mo_")
 
 
 # In[68]:
 
 
-features_dow = pd.get_dummies(df['DayOfWeek'], drop_first=True, prefix="dow_")
+features_dow = pd.get_dummies(df['DayOfWeek'],
+                              drop_first=True,
+                              prefix="dow_")
 
 
 # In[69]:
@@ -259,7 +265,8 @@ features.columns
 # What is our baseline Month, DOW and TOD reference point?
 
 
-dataset = pd.concat([features, df['compensated_delays']],
+dataset = pd.concat([features,
+                     df['compensated_delays']],
                      axis=1)
 
 
