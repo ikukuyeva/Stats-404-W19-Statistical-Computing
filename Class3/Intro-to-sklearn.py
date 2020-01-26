@@ -43,7 +43,7 @@ pd.options.display.max_rows = 8
 #   - Running Python 3.7
 #   - requirements.txt
 
-# - Outcome variable: (arrival delay of 3+ hours or departure delay of 2+ hours) or not, per https://upgradedpoints.com/flight-delay-cancelation-compensation
+# - Outcome variable: (arrival delay of 3+ hours or departure delay of 2+ hours) or not, per [article](https://upgradedpoints.com/flight-delay-cancelation-compensation)
 
 # ## Step 3: Get Access to Data
 
@@ -96,7 +96,7 @@ min(df['ArrTime']), max(df['ArrTime'])
 Counter(df['UniqueCarrier'])
 
 
-# ## Step 4: To come a little later...
+# ## Step 4: Data Splits (later today)
 
 # ## Step 5: Feature Engineering for Baseline Model (v0)
 
@@ -174,7 +174,7 @@ str(int(min(df['DepTime']))).zfill(4)
 # In[27]:
 
 
-# Before processing all the values, assign missing values to own category:
+# Before processing all the values, assign missing values their own category:
 df['DepTime'] = df['DepTime'].fillna(9999.0)
 
 
