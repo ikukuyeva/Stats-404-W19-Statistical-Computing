@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Iterative Model Development Steps with Application to Airlines Dataset
-# - Steps are outlined in https://goo.gl/A7P4vX
+# - Steps are outlined in Class 3 [slide deck](http://bit.ly/2Gkl7ZB)
 # - Link to airlines [dataset](https://github.com/h2oai/h2o-2/wiki/Hacking-Airline-DataSet-with-H2O)
 
 # In[82]:
@@ -10,6 +10,7 @@
 
 from collections import Counter
 import inspect
+
 from joblib import dump, load
 import numpy as np
 import pandas as pd
@@ -31,17 +32,18 @@ pd.options.display.max_rows = 8
 # - Please let us know what you would have done!
 
 # ## Step 2: Understand Business Use Case
-# Proposed use case -- there may be (many) others:
-# - Client: Airline
-# - Statement of Problem: Airline has to compensate passangers if flight was delayed by 2+ hours or if flight arrived 3+ hours later.
-# - Question: Are there (any) aspects of delay that could have been prevented?
+# Per [Class 0](http://bit.ly/2SPtCVi), proposed use case -- there may be (many) others:
+# - **Client**: Airline
+# - **Statement of Problem**: Airline has to compensate passangers if flight was delayed by 2+ hours or if flight arrived 3+ hours later.
+# - **Key Business Question**: Are there (any) aspects of delayed + compensated flights that may be foreseen and potentially prevented, at scheduling time?
+# - **Business impact of work**: (Conservative estimate) If we can reduce compensated delays by 1%, we reduce airline expenses by $300K/year
 
-# - Production environment:
-#   - Jupyter notebook (for POC)
+# - POC environment:
+#   - Jupyter notebook
 #   - Running Python 3.7
 #   - requirements.txt
 
-# - Outcome variable: (arrival delay of 3+ hours or departure delay of 2+ hours) or not, per https://upgradedpoints.com/flight-delay-cancelation-compensation
+# - Outcome variable: (arrival delay of 3+ hours or departure delay of 2+ hours) or not, per [article](https://upgradedpoints.com/flight-delay-cancelation-compensation)
 
 # ## Step 3: Get Access to Data
 
@@ -94,7 +96,7 @@ min(df['ArrTime']), max(df['ArrTime'])
 Counter(df['UniqueCarrier'])
 
 
-# ## Step 4: To come a little later...
+# ## Step 4: Data Splits (later today)
 
 # ## Step 5: Feature Engineering for Baseline Model (v0)
 
@@ -172,7 +174,7 @@ str(int(min(df['DepTime']))).zfill(4)
 # In[27]:
 
 
-# Before processing all the values, assign missing values to own category:
+# Before processing all the values, assign missing values their own category:
 df['DepTime'] = df['DepTime'].fillna(9999.0)
 
 
@@ -218,7 +220,9 @@ df['Dep_Hour'].value_counts(sort=False)
 # In[65]:
 
 
-features_tod = pd.get_dummies(df['Dep_Hour'], drop_first=True, prefix="tod_")
+features_tod = pd.get_dummies(df['Dep_Hour'],
+                              drop_first=True,
+                              prefix="tod_")
 
 
 # In[66]:
@@ -230,13 +234,17 @@ features_tod.head()
 # In[67]:
 
 
-features_month = pd.get_dummies(df['Month'], drop_first=True, prefix="mo_")
+features_month = pd.get_dummies(df['Month'],
+                                drop_first=True,
+                                prefix="mo_")
 
 
 # In[68]:
 
 
-features_dow = pd.get_dummies(df['DayOfWeek'], drop_first=True, prefix="dow_")
+features_dow = pd.get_dummies(df['DayOfWeek'],
+                              drop_first=True,
+                              prefix="dow_")
 
 
 # In[69]:
@@ -257,7 +265,8 @@ features.columns
 # What is our baseline Month, DOW and TOD reference point?
 
 
-dataset = pd.concat([features, df['compensated_delays']],
+dataset = pd.concat([features,
+                     df['compensated_delays']],
                      axis=1)
 
 
@@ -289,6 +298,7 @@ df_train, df_valid = train_test_split(df_tmp,
 
 
 # In[79]:
+# What are the train, validation, test percentages here?
 
 
 df_train['compensated_delays'].value_counts(sort=False)
@@ -394,6 +404,10 @@ coef_df["odds"] = [round(np.exp(x), 2) for x in coef_df['coef_est']]
 intercept = intercept_df['coef_est'].values.tolist()[0]
 intercept
 
+
+# More on odds vs probabilities [here](https://stats.idre.ucla.edu/stata/faq/how-do-i-interpret-odds-ratios-in-logistic-regression/)
+
+# ![Inverse logit](./images/Inverse-logit.png)[Wikipedia](https://en.wikipedia.org/wiki/Logit)
 
 def inverse_logit(intercept, coefficient):
     """Fcn to help calculate probability associated with flight delay,
@@ -556,6 +570,8 @@ roc_auc_score(y_true=y_valid,
 f1_score(y_true=y_valid,
          y_pred=y_pred_valid)
 
+
+# How did out-of-sample compare?
 
 # ## Step 9: Determine Next Steps
 

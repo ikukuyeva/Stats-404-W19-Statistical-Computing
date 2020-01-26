@@ -14,7 +14,7 @@
   - Class 1 lecture [slides](http://bit.ly/2QIrdc5) and [code](https://github.com/ikukuyeva/Stats-404-W19-Statistical-Computing/tree/master/Class1): *Python* expressions, control flow, functions, variable types, passing by reference, list comprehension, functional programming
   - Class 2 lecture [slides](http://bit.ly/30CPeVe) and [code](https://github.com/ikukuyeva/Stats-404-W19-Statistical-Computing/tree/master/Class2): *pandas* and reading-in data, subsetting, EDA, split + apply+ combine, pandas + databases
 - **Weeks 4 and 5**: Regression methods + numerical optimization + loss functions: linear, logistic, Elastic nets, PCA regression, hyper-parameter tuning, Deep Learning and custom loss functions
-    - Class 3 lecture [slides](https://goo.gl/A7P4vX) and [code](https://github.com/ikukuyeva/Stats-404-W19-Statistical-Computing/tree/master/Class3)
+    - Class 3 lecture [slides](http://bit.ly/2Gkl7ZB) and [code](https://github.com/ikukuyeva/Stats-404-W19-Statistical-Computing/tree/master/Class3)
     - Class 4 lecture [slides](https://goo.gl/Kch3iJ) and [code](https://github.com/ikukuyeva/Stats-404-W19-Statistical-Computing/tree/master/Class4)
 - **Week 6**: Python and Big Data: pandas and big data, Dask, pySpark + SparkSQL, embarrassingly parallel processes, AWS S3
   - Class 5 lecture [slides](https://goo.gl/ifKAcV) and [code](https://github.com/ikukuyeva/Stats-404-W19-Statistical-Computing/tree/master/Class5)
