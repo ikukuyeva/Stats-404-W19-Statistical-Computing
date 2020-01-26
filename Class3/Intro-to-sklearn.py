@@ -31,13 +31,14 @@ pd.options.display.max_rows = 8
 # - Please let us know what you would have done!
 
 # ## Step 2: Understand Business Use Case
-# Proposed use case -- there may be (many) others:
-# - Client: Airline
-# - Statement of Problem: Airline has to compensate passangers if flight was delayed by 2+ hours or if flight arrived 3+ hours later.
-# - Question: Are there (any) aspects of delay that could have been prevented?
-
 # - Production environment:
 #   - Jupyter notebook (for POC)
+# Per [Class 0](http://bit.ly/2SPtCVi), proposed use case -- there may be (many) others:
+# - **Client**: Airline
+# - **Statement of Problem**: Airline has to compensate passangers if flight was delayed by 2+ hours or if flight arrived 3+ hours later.
+# - **Key Business Question**: Are there (any) aspects of delayed + compensated flights that may be foreseen and potentially prevented, at scheduling time?
+# - **Business impact of work**: (Conservative estimate) If we can reduce compensated delays by 1%, we reduce airline expenses by $300K/year
+
 #   - Running Python 3.7
 #   - requirements.txt
 
