@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Iterative Model Development Steps with Application to Airlines Dataset
-# - Steps are outlined in https://goo.gl/A7P4vX
+# - Steps are outlined in Class 3 [slide deck](http://bit.ly/2Gkl7ZB)
 # - Link to airlines [dataset](https://github.com/h2oai/h2o-2/wiki/Hacking-Airline-DataSet-with-H2O)
 
 # In[82]:
