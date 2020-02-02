@@ -114,16 +114,23 @@ class Network():
             activation = sigmoid(z)
             activations.append(activation)
         # --- Backward pass (through each layer, starting from the last):
+        #
+        # Equation BP1 in book:
         delta = self.cost_derivative(activations[-1], y) * sigmoid_prime(zs[-1])
+        # Equation BP3 in book:
         nabla_b[-1] = delta
+        # Equation BP4 in book:
         nabla_w[-1] = np.dot(delta, activations[-2].transpose())
         # Here, l = 1 means the last layer of neurons, l = 2 is second-to-last
         # layer, etc., to take advantage of Python's use of negative indices:
         for l in range(2, self.num_layers):
             z = zs[-l]
             sp = sigmoid_prime(z)
+            # Equation BP2 in book:
             delta = np.dot(self.weights[-l+1].transpose(), delta) * sp
+            # Equation BP3 in book:
             nabla_b[-l] = delta
+            # Equation BP4 in book:
             nabla_w[-l] = np.dot(delta, activations[-l-1].transpose())
         # Find small updates to weights and biases that may result in better fit:
         return (nabla_b, nabla_w)
