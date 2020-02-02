@@ -108,6 +108,8 @@ X_test, y_test = mnist_reader.load_mnist('data/fashion', kind='t10k')
 X_train.shape
 
 
+# Prevent overflow of computation by dividing by the max value of scale, to be on 0-1 scale, not 0-255:
+X_train_normalize = [x/256.0 for x in X_train]
 # In[9]:
 
 
@@ -157,13 +159,13 @@ def visualize_image(dataset_x, dataset_y, img_index, y_labels=label_dict):
 # In[13]:
 
 
-visualize_image(X_train, y_train, 0)
+visualize_image(X_train_normalize, y_train, 0)
 
 
 # In[14]:
 
 
-visualize_image(X_train, y_train, 10)
+visualize_image(X_train_normalize, y_train, 10)
 
 
 # ## Step 4: Determine Data Splits
@@ -174,7 +176,7 @@ visualize_image(X_train, y_train, 10)
 
 # Add outcome column to data set of features, to be able to split dataset
 # into training and validation, statifying by outcome variable:
-df_tmp = pd.concat([pd.DataFrame(X_train),
+df_tmp = pd.concat([pd.DataFrame(X_train_normalize),
                     pd.DataFrame(y_train, columns=["outcome"])], axis=1)
 df_tmp.columns
 
