@@ -111,13 +111,13 @@ X_test, y_test = mnist_reader.load_mnist('data/fashion', kind='t10k')
 X_train.shape
 
 
-X_train_normalize = [x/256.0 for x in X_train]
 # In[9]:
 
 
 X_test.shape
 # Prevent overflow of computation by dividing by the max value of scale, 
 # to be on 0-1 scale, not 0-255:
+X_train_normalize = [x/255.0 for x in X_train]
 
 
 # In[10]:
