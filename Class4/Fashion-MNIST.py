@@ -39,9 +39,10 @@ np.random.seed(2000)
 
 # ## Step 2: Understand Business Use Case
 # Proposed use case -- there may be (many) others:
-# - Client: Online marketplace for buyers and sellers of retail goods
-# - Statement of Problem: Marketplace allows sellers to upload goods and requires an item's description, that's indexed by the platform's search engine. 
-# - Question: Can we improve search results by automatically tagging an item's category for the seller (and surfacing that tag to the platform's search engine)? 
+# - *Client*: Online marketplace for buyers and sellers of retail goods
+# - *Statement of Problem*: Marketplace allows sellers to upload goods and requires an item's description, that's indexed by the platform's search engine. 
+# - *Question*: Can we improve search results by automatically tagging an item's category for the seller (and surfacing that tag to the platform's search engine)?
+# - *Business Impact*: Improved search results may affect engagement, conversion and AOV. If AOV increases by 5%, assuming a `$40` AOV and `$200K` revenue/month, our work increases revenue by `$100K`/year.  
 
 # What approach would you recommend?
 
