@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Iterative Model Development Steps with Application to Fashion-MNIST Dataset
-# - Steps are outlined in https://goo.gl/A7P4vX
+# - Steps are also outlined in today's [deck](http://bit.ly/2SbsPKX)
 # - Link to Fashion-MNIST [dataset](https://github.com/zalandoresearch/fashion-mnist)
 
 # ## Step 1: Understand Different Modeling Approaches
@@ -12,8 +12,12 @@
 # In[1]:
 
 
+# Standard libraries:
 from collections import Counter
 import inspect
+import os
+
+# Third-party libraries:
 from joblib import dump, load
 import matplotlib.pyplot as plt
 import numpy as np
@@ -22,7 +26,9 @@ import random
 from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score,                             mean_squared_error, roc_auc_score
-import os
+
+# Custom libraries:
+import network
 
 
 # In[2]:
@@ -33,9 +39,13 @@ np.random.seed(2000)
 
 # ## Step 2: Understand Business Use Case
 # Proposed use case -- there may be (many) others:
-# - Client: Online marketplace for buyers and sellers of retail goods
-# - Statement of Problem: Marketplace allows sellers to upload goods and requires an item's description, that's indexed by the platform's search engine. 
-# - Question: Can we improve search results by automatically tagging an item's category for the seller (and surfacing that tag to the platform's search engine)? 
+# - **Client**: Online marketplace for buyers and sellers of retail goods
+# 
+# - **Statement of Problem**: Marketplace allows sellers to upload goods and requires an item's description, that's indexed by the platform's search engine. 
+# 
+# - **Question**: Can we improve search results by automatically tagging an item's category for the seller (and surfacing that tag to the platform's search engine)?
+# 
+# - **Business Impact**: Improved search results may affect engagement, conversion and AOV. If AOV increases by 5%, assuming a `$40` AOV and `$200K` revenue/month, our work increases revenue by `$100K`/year.  
 
 # What approach would you recommend?
 
@@ -58,7 +68,7 @@ notebook_dir = os.getcwd()
 notebook_dir
 
 
-# **Step 1**: Clone Fashion-MNIST repo: https://github.com/zalandoresearch/fashion-mnist.git located [here](https://github.com/zalandoresearch/fashion-mnist)
+# **Step 1**: Clone Fashion-MNIST [repository](https://github.com/zalandoresearch/fashion-mnist)
 # 
 # **Step 2**: Specify path to this direcotry on your local machine:
 
@@ -105,6 +115,9 @@ X_train.shape
 
 
 X_test.shape
+# Prevent overflow of computation by dividing by the max value of scale, 
+# to be on 0-1 scale, not 0-255:
+X_train_normalize = [x/255.0 for x in X_train]
 
 
 # In[10]:
@@ -150,13 +163,13 @@ def visualize_image(dataset_x, dataset_y, img_index, y_labels=label_dict):
 # In[13]:
 
 
-visualize_image(X_train, y_train, 0)
+visualize_image(X_train_normalize, y_train, 0)
 
 
 # In[14]:
 
 
-visualize_image(X_train, y_train, 10)
+visualize_image(X_train_normalize, y_train, 10)
 
 
 # ## Step 4: Determine Data Splits
@@ -167,7 +180,7 @@ visualize_image(X_train, y_train, 10)
 
 # Add outcome column to data set of features, to be able to split dataset
 # into training and validation, statifying by outcome variable:
-df_tmp = pd.concat([pd.DataFrame(X_train),
+df_tmp = pd.concat([pd.DataFrame(X_train_normalize),
                     pd.DataFrame(y_train, columns=["outcome"])], axis=1)
 df_tmp.columns
 
@@ -201,7 +214,7 @@ Counter(y_test)
 
 # ## Step 5: Feature Engineering
 
-# Baseline model (v0) will use raw images as features.
+# Baseline model (v0) will use greyscale images that were rescaled to be on a scale of 0-1 (from 0-255), as features.
 
 # Using this assumptions, how many features are there per image?
 
@@ -447,7 +460,7 @@ instructor.name
 # In[ ]:
 
 
-TA = Person('Hao')
+TA = Person('Theja')
 TA.name
 
 
@@ -456,8 +469,6 @@ TA.name
 
 type(instructor)
 
-
-# # 10 minute break
 
 # # (Back to) Step 9: Fit An Alternative Model (v1)
 # Reference: http://neuralnetworksanddeeplearning.com/chap1.html and
@@ -496,124 +507,31 @@ for i in range(num_rows):
     training_data[i] = (tmp_x, tmp_y)
 
 
+# In[ ]:
+
+
+
+
+# In[ ]:
+
+
+
+
+
 # #### Define the Fully Connected NN and its Estimation
+# - Please see `network.py` in this repository for commented version of the code.
 
 # In[ ]:
+# <Walk through of `network.py`>
 
-
-class Network(object):
-
-    def __init__(self, sizes):
-        """The list ``sizes`` specified number of neurons per layer."""
-        self.num_layers = len(sizes)
-        self.sizes = sizes
-        # Biases and weights are initialized from Normal distribution:
-        self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
-        self.weights = [np.random.randn(y, x)
-                        for x, y in zip(sizes[:-1], sizes[1:])]
-
-    def feedforward(self, a):
-        """Return output of network."""
-        for b, w in zip(self.biases, self.weights):
-            a = sigmoid(np.dot(w, a)+b)
-        return a
-
-    def SGD(self, training_data, learning_rate):
-        """Train the neural network using gradient descent on full dataset."""
-        accuracy_new = 0
-        while accuracy_new < 0.8:
-            accuracy_old = accuracy_new
-            nabla_b = [np.zeros(b.shape) for b in self.biases]
-            nabla_w = [np.zeros(w.shape) for w in self.weights]
-            for x, y in training_data:
-                delta_nabla_b, delta_nabla_w = self.backprop(x, y)
-                nabla_b = [nb+dnb for nb, dnb in zip(nabla_b, delta_nabla_b)]
-                nabla_w = [nw+dnw for nw, dnw in zip(nabla_w, delta_nabla_w)]
-            self.weights = [w-(learning_rate/len(training_data))*nw
-                            for w, nw in zip(self.weights, nabla_w)]
-            self.biases = [b-(learning_rate/len(training_data))*nb
-                           for b, nb in zip(self.biases, nabla_b)]
-            TP = self.evaluate(training_data)
-            accuracy_new = float(TP)/len(training_data)
-            print(accuracy_new)
-            if (abs(accuracy_new - accuracy_old) < 0.00001):
-                break
-        return self.evaluate(training_data, accuracy=False)
-
-    def backprop(self, x, y):
-        """Return a tuple representing gradient for the cost function."""
-        # Initialize for each layer:
-        nabla_b = [np.zeros(b.shape) for b in self.biases]
-        nabla_w = [np.zeros(w.shape) for w in self.weights]
-        # feedforward
-        activation = x
-        activations = [x] # list to store all the activations, layer by layer
-        zs = [] # list to store all the z vectors, layer by layer
-        for b, w in zip(self.biases, self.weights):
-            z = np.dot(w, activation)+b
-            zs.append(z)
-            activation = sigmoid(z)
-            activations.append(activation)
-        # backward pass
-        delta = self.cost_derivative(activations[-1], y) *             sigmoid_derivative(zs[-1])
-        nabla_b[-1] = delta
-        nabla_w[-1] = np.dot(delta, activations[-2].transpose())
-        # Here, l = 1 means the last layer of neurons, l = 2 is second-to-last layer, etc.
-        for l in range(2, self.num_layers):
-            z = zs[-l]
-            sp = sigmoid_derivative(z)
-            delta = np.dot(self.weights[-l+1].transpose(), delta) * sp
-            nabla_b[-l] = delta
-            nabla_w[-l] = np.dot(delta, activations[-l-1].transpose())
-        return (nabla_b, nabla_w)
-    
-    def evaluate(self, test_data, accuracy=True):
-        """Return accuracy or final predictions."""
-        test_results = [(np.argmax(self.feedforward(x)), np.argmax(y)) for (x, y) in test_data]
-        if accuracy:
-            return sum(int(y_pred == y) for (y_pred, y) in test_results)
-        else:
-            return [self.feedforward(x) for (x, y) in test_data]
-
-    def cost_derivative(self, output_activations, y):
-        """Return the vector of partial derivatives of cost fcn."""
-        return (output_activations-y)
-
-
-# ![Initialize network class](./images/define_ntwk.png)
-
-# ![Initialize network class](./images/feedforward.png)
-
-# ![Initialize network class](./images/sgd.png)
-
-# ![Initialize network class](./images/backprop.png)
-
-# ![Initialize network class](./images/evaluate.png)
-
-# ![Initialize network class](./images/cost_derivative.png)
-
-# In[ ]:
-
-
-#### Miscellaneous helper functions
-
-def sigmoid(z):
-    """The sigmoid function."""
-    return 1.0/(1.0+np.exp(-z))
-
-def sigmoid_derivative(z):
-    """Derivative of the sigmoid function."""
-    return sigmoid(z)*(1-sigmoid(z))
-
-
-# In[ ]:
 
 
 # Network specs: 
 #     28*28 neurons in input layer, 
 #     30 in hidden layer, 
 #     predicting 1 of 10 classes in output layer:
-net = Network([784, 30, 10])
+random.seed(2019)
+net = network.Network([784, 30, 10])
 
 
 # In[ ]:
@@ -622,11 +540,14 @@ net = Network([784, 30, 10])
 res = net.SGD(training_data, learning_rate=3.0)
 
 
-# Accuracy at convergence:
-# ![NN convergence](./images/NN-convergence.png)
+# Final accuracy: ~53%
 
-# Is convergence monotonic?
+# Note: 
+# - Convergence is not monotonic
+# - Sensitive to initial conditions
+
 # #### Ad-hoc (Mis)classifications Check
+# - Recall: We're using sigmoid, not softmax activation function
 
 # In[ ]:
 
