@@ -470,8 +470,6 @@ TA.name
 type(instructor)
 
 
-# # 10 minute break
-
 # # (Back to) Step 9: Fit An Alternative Model (v1)
 # Reference: http://neuralnetworksanddeeplearning.com/chap1.html and
 # simplified `network.py` code from repository:
