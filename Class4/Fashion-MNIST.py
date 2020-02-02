@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Iterative Model Development Steps with Application to Fashion-MNIST Dataset
-# - Steps are outlined in https://goo.gl/A7P4vX
+# - Steps are also outlined in today's [deck](http://bit.ly/2SbsPKX)
 # - Link to Fashion-MNIST [dataset](https://github.com/zalandoresearch/fashion-mnist)
 
 # ## Step 1: Understand Different Modeling Approaches
@@ -39,10 +39,13 @@ np.random.seed(2000)
 
 # ## Step 2: Understand Business Use Case
 # Proposed use case -- there may be (many) others:
-# - *Client*: Online marketplace for buyers and sellers of retail goods
-# - *Statement of Problem*: Marketplace allows sellers to upload goods and requires an item's description, that's indexed by the platform's search engine. 
-# - *Question*: Can we improve search results by automatically tagging an item's category for the seller (and surfacing that tag to the platform's search engine)?
-# - *Business Impact*: Improved search results may affect engagement, conversion and AOV. If AOV increases by 5%, assuming a `$40` AOV and `$200K` revenue/month, our work increases revenue by `$100K`/year.  
+# - **Client**: Online marketplace for buyers and sellers of retail goods
+# 
+# - **Statement of Problem**: Marketplace allows sellers to upload goods and requires an item's description, that's indexed by the platform's search engine. 
+# 
+# - **Question**: Can we improve search results by automatically tagging an item's category for the seller (and surfacing that tag to the platform's search engine)?
+# 
+# - **Business Impact**: Improved search results may affect engagement, conversion and AOV. If AOV increases by 5%, assuming a `$40` AOV and `$200K` revenue/month, our work increases revenue by `$100K`/year.  
 
 # What approach would you recommend?
 
@@ -108,12 +111,13 @@ X_test, y_test = mnist_reader.load_mnist('data/fashion', kind='t10k')
 X_train.shape
 
 
-# Prevent overflow of computation by dividing by the max value of scale, to be on 0-1 scale, not 0-255:
 X_train_normalize = [x/256.0 for x in X_train]
 # In[9]:
 
 
 X_test.shape
+# Prevent overflow of computation by dividing by the max value of scale, 
+# to be on 0-1 scale, not 0-255:
 
 
 # In[10]:
@@ -210,7 +214,7 @@ Counter(y_test)
 
 # ## Step 5: Feature Engineering
 
-# Baseline model (v0) will use raw images as features.
+# Baseline model (v0) will use greyscale images that were rescaled to be on a scale of 0-1 (from 0-255), as features.
 
 # Using this assumptions, how many features are there per image?
 
@@ -523,7 +527,7 @@ dump(training_data, training_object_path)
 # - Please see `network.py` in this repository for commented version of the code.
 
 # In[ ]:
-# < Walk through of network.py>
+# <Walk through of `network.py`>
 
 
 
