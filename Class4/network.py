@@ -139,7 +139,7 @@ class Network():
         """Return overall network accuracy or probabilities of each neuron given
            by the network.
 		   ---
-		   TODO: Candidate for refactoring as uses if/else statement w/ output.
+		   TODO: Candidate for refactoring, as uses if/else statement w/ output.
         """
         # For each labeled image in the data set, see which class the network
         # predicts, and which class is the labeled class:
@@ -150,11 +150,10 @@ class Network():
             return sum(int(y_pred == y) for (y_pred, y) in test_results)
         else:
         	# Return probabilities associated with each neuron, rather than
-        	# labels:
+        	# returning labels:
             return [self.feedforward(x) for (x, y) in test_data]
 
     def cost_derivative(self, output_activations, y):
-        """Return the vector of partial derivatives \partial C_x /
-           \partial a for the output activations.
+        """Return the vector of partial derivatives of quadratic cost function.
         """
         return output_activations-y
