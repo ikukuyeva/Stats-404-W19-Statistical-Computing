@@ -2,6 +2,7 @@
 network.py
 ~~~~~~~~~~
 Author: Michael Nielsen
+Modified by: Irina Kukuyeva
 Book: http://neuralnetworksanddeeplearning.com/
 Code repository:
 https://github.com/mnielsen/neural-networks-and-deep-learning/blob/master/src/network.py
