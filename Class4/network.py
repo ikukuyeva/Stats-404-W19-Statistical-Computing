@@ -20,9 +20,20 @@ import numpy as np
 
 random.seed(2019)
 
+# Helper functions not part of Network() class, but are used within class:
+def sigmoid(z):
+    """The sigmoid function: prob of each neuron is between 0 and 1,
+       vs softmax(), where prob of output is b/w 0 and 1.
+    """
+    return 1.0/(1.0+np.exp(-z))
+
+
+def sigmoid_prime(z):
+    """Derivative of the sigmoid function."""
+    return sigmoid(z)*(1-sigmoid(z))
+
 
 class Network(object):
-
     def __init__(self, sizes):
         """The list ``sizes`` contains the number of neurons in the
         respective layers of the network.  For example, if the list
@@ -115,14 +126,3 @@ class Network(object):
         """Return the vector of partial derivatives \partial C_x /
         \partial a for the output activations."""
         return (output_activations-y)
-
-
-# Helper functions not part of Network() class, but are used within class:
-def sigmoid(z):
-    """The sigmoid function."""
-    return 1.0/(1.0+np.exp(-z))
-
-
-def sigmoid_prime(z):
-    """Derivative of the sigmoid function."""
-    return sigmoid(z)*(1-sigmoid(z))
