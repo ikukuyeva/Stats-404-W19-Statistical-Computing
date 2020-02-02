@@ -543,11 +543,14 @@ net = network.Network([784, 30, 10])
 res = net.SGD(training_data, learning_rate=3.0)
 
 
-# Accuracy at convergence:
-# ![NN convergence](./images/NN-convergence.png)
+# Final accuracy: ~53%
 
-# Is convergence monotonic?
+# Note: 
+# - Convergence is not monotonic
+# - Sensitive to initial conditions
+
 # #### Ad-hoc (Mis)classifications Check
+# - Recall: We're using sigmoid, not softmax activation function
 
 # In[ ]:
 
