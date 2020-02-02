@@ -502,124 +502,33 @@ for i in range(num_rows):
     training_data[i] = (tmp_x, tmp_y)
 
 
+# In[ ]:
+
+
+# type(training_data)
+training_object_path = os.path.join(notebook_dir, 'training_data.joblib')
+dump(training_data, training_object_path) 
+
+
+# In[ ]:
+
+
+
+
+
 # #### Define the Fully Connected NN and its Estimation
+# - Please see `network.py` in this repository for commented version of the code.
 
 # In[ ]:
+# < Walk through of network.py>
 
-
-class Network(object):
-
-    def __init__(self, sizes):
-        """The list ``sizes`` specified number of neurons per layer."""
-        self.num_layers = len(sizes)
-        self.sizes = sizes
-        # Biases and weights are initialized from Normal distribution:
-        self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
-        self.weights = [np.random.randn(y, x)
-                        for x, y in zip(sizes[:-1], sizes[1:])]
-
-    def feedforward(self, a):
-        """Return output of network."""
-        for b, w in zip(self.biases, self.weights):
-            a = sigmoid(np.dot(w, a)+b)
-        return a
-
-    def SGD(self, training_data, learning_rate):
-        """Train the neural network using gradient descent on full dataset."""
-        accuracy_new = 0
-        while accuracy_new < 0.8:
-            accuracy_old = accuracy_new
-            nabla_b = [np.zeros(b.shape) for b in self.biases]
-            nabla_w = [np.zeros(w.shape) for w in self.weights]
-            for x, y in training_data:
-                delta_nabla_b, delta_nabla_w = self.backprop(x, y)
-                nabla_b = [nb+dnb for nb, dnb in zip(nabla_b, delta_nabla_b)]
-                nabla_w = [nw+dnw for nw, dnw in zip(nabla_w, delta_nabla_w)]
-            self.weights = [w-(learning_rate/len(training_data))*nw
-                            for w, nw in zip(self.weights, nabla_w)]
-            self.biases = [b-(learning_rate/len(training_data))*nb
-                           for b, nb in zip(self.biases, nabla_b)]
-            TP = self.evaluate(training_data)
-            accuracy_new = float(TP)/len(training_data)
-            print(accuracy_new)
-            if (abs(accuracy_new - accuracy_old) < 0.00001):
-                break
-        return self.evaluate(training_data, accuracy=False)
-
-    def backprop(self, x, y):
-        """Return a tuple representing gradient for the cost function."""
-        # Initialize for each layer:
-        nabla_b = [np.zeros(b.shape) for b in self.biases]
-        nabla_w = [np.zeros(w.shape) for w in self.weights]
-        # feedforward
-        activation = x
-        activations = [x] # list to store all the activations, layer by layer
-        zs = [] # list to store all the z vectors, layer by layer
-        for b, w in zip(self.biases, self.weights):
-            z = np.dot(w, activation)+b
-            zs.append(z)
-            activation = sigmoid(z)
-            activations.append(activation)
-        # backward pass
-        delta = self.cost_derivative(activations[-1], y) *             sigmoid_derivative(zs[-1])
-        nabla_b[-1] = delta
-        nabla_w[-1] = np.dot(delta, activations[-2].transpose())
-        # Here, l = 1 means the last layer of neurons, l = 2 is second-to-last layer, etc.
-        for l in range(2, self.num_layers):
-            z = zs[-l]
-            sp = sigmoid_derivative(z)
-            delta = np.dot(self.weights[-l+1].transpose(), delta) * sp
-            nabla_b[-l] = delta
-            nabla_w[-l] = np.dot(delta, activations[-l-1].transpose())
-        return (nabla_b, nabla_w)
-    
-    def evaluate(self, test_data, accuracy=True):
-        """Return accuracy or final predictions."""
-        test_results = [(np.argmax(self.feedforward(x)), np.argmax(y)) for (x, y) in test_data]
-        if accuracy:
-            return sum(int(y_pred == y) for (y_pred, y) in test_results)
-        else:
-            return [self.feedforward(x) for (x, y) in test_data]
-
-    def cost_derivative(self, output_activations, y):
-        """Return the vector of partial derivatives of cost fcn."""
-        return (output_activations-y)
-
-
-# ![Initialize network class](./images/define_ntwk.png)
-
-# ![Initialize network class](./images/feedforward.png)
-
-# ![Initialize network class](./images/sgd.png)
-
-# ![Initialize network class](./images/backprop.png)
-
-# ![Initialize network class](./images/evaluate.png)
-
-# ![Initialize network class](./images/cost_derivative.png)
-
-# In[ ]:
-
-
-#### Miscellaneous helper functions
-
-def sigmoid(z):
-    """The sigmoid function."""
-    return 1.0/(1.0+np.exp(-z))
-
-def sigmoid_derivative(z):
-    """Derivative of the sigmoid function."""
-    return sigmoid(z)*(1-sigmoid(z))
-
-
-# In[ ]:
 
 
 # Network specs: 
 #     28*28 neurons in input layer, 
 #     30 in hidden layer, 
 #     predicting 1 of 10 classes in output layer:
-net = Network([784, 30, 10])
+net = network.Network([784, 30, 10])
 
 
 # In[ ]:
