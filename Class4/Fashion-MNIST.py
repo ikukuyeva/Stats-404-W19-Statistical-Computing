@@ -65,7 +65,7 @@ notebook_dir = os.getcwd()
 notebook_dir
 
 
-# **Step 1**: Clone Fashion-MNIST repo: https://github.com/zalandoresearch/fashion-mnist.git located [here](https://github.com/zalandoresearch/fashion-mnist)
+# **Step 1**: Clone Fashion-MNIST [repository](https://github.com/zalandoresearch/fashion-mnist)
 # 
 # **Step 2**: Specify path to this direcotry on your local machine:
 
