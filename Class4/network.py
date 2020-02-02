@@ -59,8 +59,8 @@ class Network():
 
     def feedforward(self, a):
         """Return the output of the network if ``a`` is input."""
-        for b, w in zip(self.biases, self.weights):
-            a = sigmoid(np.dot(w, a)+b)
+        for bias, wgt in zip(self.biases, self.weights):
+            a = sigmoid(np.dot(wgt, a) + bias)
         return a
 
     def SGD(self, training_data, learning_rate):
@@ -71,8 +71,8 @@ class Network():
         accuracy_new = 0
         while accuracy_new < 0.8:
             accuracy_old = accuracy_new
-            nabla_b = [np.zeros(b.shape) for b in self.biases]
-            nabla_w = [np.zeros(w.shape) for w in self.weights]
+            nabla_b = [np.zeros(bias.shape) for bias in self.biases]
+            nabla_w = [np.zeros(wgt.shape) for wgt in self.weights]
             # --- Iterate over each labeled image in the data set:
             for x, y in training_data:
             	# --- Find small updates to weights and biases that may result
@@ -100,16 +100,16 @@ class Network():
            ``nabla_w`` are layer-by-layer lists of numpy arrays, similar
            to ``self.biases`` and ``self.weights``.
         """
-        nabla_b = [np.zeros(b.shape) for b in self.biases]
-        nabla_w = [np.zeros(w.shape) for w in self.weights]
+        nabla_b = [np.zeros(bias.shape) for bias in self.biases]
+        nabla_w = [np.zeros(wgt.shape) for wgt in self.weights]
         # --- Feedforward (through each layer, starting from the first):
         activation = x
         activations = [x] # list to store all the activations, layer by layer
         zs = [] 		  # list to store all the z vectors, layer by layer,
         				  #      where z is the "value" of node, before it's
         				  #      passed to activation fcn
-        for b, w in zip(self.biases, self.weights):
-            z = np.dot(w, activation)+b
+        for bias, wgt in zip(self.biases, self.weights):
+            z = np.dot(wgt, activation) + bias
             zs.append(z)
             activation = sigmoid(z)
             activations.append(activation)
