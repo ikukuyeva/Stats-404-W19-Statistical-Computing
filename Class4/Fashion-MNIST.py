@@ -460,7 +460,7 @@ instructor.name
 # In[ ]:
 
 
-TA = Person('Hao')
+TA = Person('Theja')
 TA.name
 
 
