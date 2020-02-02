@@ -531,6 +531,7 @@ dump(training_data, training_object_path)
 #     28*28 neurons in input layer, 
 #     30 in hidden layer, 
 #     predicting 1 of 10 classes in output layer:
+random.seed(2019)
 net = network.Network([784, 30, 10])
 
 

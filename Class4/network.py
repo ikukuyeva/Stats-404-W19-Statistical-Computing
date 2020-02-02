@@ -51,7 +51,6 @@ class Network():
            - Note that there are no weights in the last layer, as it's the
              output layer.
         """
-        random.seed(2019)
         self.num_layers = len(sizes)
         self.sizes = sizes
         self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
