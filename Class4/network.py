@@ -18,7 +18,6 @@ import random
 # Third-party libraries
 import numpy as np
 
-random.seed(2019)
 
 # Helper functions not part of Network() class, but are used within class:
 def sigmoid(z):
@@ -45,6 +44,7 @@ class Network(object):
         layer is assumed to be an input layer, and by convention we
         won't set any biases for those neurons, since biases are only
         ever used in computing the outputs from later layers."""
+        random.seed(2019)
         self.num_layers = len(sizes)
         self.sizes = sizes
         self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
