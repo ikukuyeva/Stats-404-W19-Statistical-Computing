@@ -510,9 +510,6 @@ for i in range(num_rows):
 # In[ ]:
 
 
-# type(training_data)
-training_object_path = os.path.join(notebook_dir, 'training_data.joblib')
-dump(training_data, training_object_path) 
 
 
 # In[ ]:
