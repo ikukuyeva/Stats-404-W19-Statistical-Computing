@@ -12,8 +12,12 @@
 # In[1]:
 
 
+# Standard libraries:
 from collections import Counter
 import inspect
+import os
+
+# Third-party libraries:
 from joblib import dump, load
 import matplotlib.pyplot as plt
 import numpy as np
@@ -22,7 +26,9 @@ import random
 from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score,                             mean_squared_error, roc_auc_score
-import os
+
+# Custom libraries:
+import network
 
 
 # In[2]:
