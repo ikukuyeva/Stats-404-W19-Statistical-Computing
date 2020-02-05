@@ -45,7 +45,7 @@ np.random.seed(2000)
 # 
 # - **Question**: Can we improve search results by automatically tagging an item's category for the seller (and surfacing that tag to the platform's search engine)?
 # 
-# - **Business Impact**: Improved search results may affect engagement, conversion and AOV. If AOV increases by 5%, assuming a `$40` AOV and `$200K` revenue/month, our work increases revenue by `$100K`/year.  
+# - **Business Impact**: Improved search results may affect engagement, conversion and AOV. Assuming a (conservative) `$40` AOV and `$200K` revenue/month: if (a) rate of first orders increases by 5%, or (b) AOV increases by 5%, our ML efforts increase revenue by `$100K`/year.  
 
 # What approach would you recommend?
 
@@ -393,8 +393,7 @@ round(conf_df_pct, 2)
 # - [Conditional highlighting](https://pandas.pydata.org/pandas-docs/stable/user_guide/style.html) of pandas dataframes
 
 # #### Evaluate Performance via F1-score
-# We have a multi-class outcome, let's use an associated F1-score, per:
-# https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html and https://medium.com/@ramit.singh.pahwa/micro-macro-precision-recall-and-f-score-44439de1a044
+# We have a multi-class outcome, let's evaluate using F1 micro- and macro- scores [[1](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html), [2](https://medium.com/@ramit.singh.pahwa/micro-macro-precision-recall-and-f-score-44439de1a044), [3](https://datascience.stackexchange.com/questions/15989/micro-average-vs-macro-average-performance-in-a-multiclass-classification-settin)]
 
 # In[ ]:
 
@@ -402,16 +401,16 @@ round(conf_df_pct, 2)
 # Class-level performance:
 f1_score(y_true=y,
          y_pred=y_pred_train,
-         average='macro')
+         average='micro')
 
 
 # In[ ]:
 
 
-# Overall performance across all classes:
+# Avg performance across all classes, assuming all classes are equally important:
 f1_score(y_true=y,
          y_pred=y_pred_train,
-         average='micro')
+         average='macro')
 
 
 # Is our F1-score surprising?
@@ -615,16 +614,16 @@ round(conf_df_pct, 2)
 # Class-level performance:
 f1_score(y_true=y,
          y_pred=y_pred_train_nn,
-         average='macro')
+         average='micro')
 
 
 # In[ ]:
 
 
-# Class-level performance:
+# Avg performance across all classes, assuming all classes are equally important:
 f1_score(y_true=y,
          y_pred=y_pred_train_nn,
-         average='micro')
+         average='macro')
 
 
 # Are we suprised by these results?
