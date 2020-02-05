@@ -393,8 +393,7 @@ round(conf_df_pct, 2)
 # - [Conditional highlighting](https://pandas.pydata.org/pandas-docs/stable/user_guide/style.html) of pandas dataframes
 
 # #### Evaluate Performance via F1-score
-# We have a multi-class outcome, let's use an associated F1-score, per:
-# https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html and https://medium.com/@ramit.singh.pahwa/micro-macro-precision-recall-and-f-score-44439de1a044
+# We have a multi-class outcome, let's evaluate using F1 micro- and macro- scores [[1](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html), [2](https://medium.com/@ramit.singh.pahwa/micro-macro-precision-recall-and-f-score-44439de1a044), [3](https://datascience.stackexchange.com/questions/15989/micro-average-vs-macro-average-performance-in-a-multiclass-classification-settin)]
 
 # In[ ]:
 
