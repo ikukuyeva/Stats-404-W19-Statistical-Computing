@@ -614,16 +614,16 @@ round(conf_df_pct, 2)
 # Class-level performance:
 f1_score(y_true=y,
          y_pred=y_pred_train_nn,
-         average='macro')
+         average='micro')
 
 
 # In[ ]:
 
 
-# Class-level performance:
+# Avg performance across all classes, assuming all classes are equally important:
 f1_score(y_true=y,
          y_pred=y_pred_train_nn,
-         average='micro')
+         average='macro')
 
 
 # Are we suprised by these results?
