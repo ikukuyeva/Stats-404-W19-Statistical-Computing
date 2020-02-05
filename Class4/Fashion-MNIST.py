@@ -45,7 +45,7 @@ np.random.seed(2000)
 # 
 # - **Question**: Can we improve search results by automatically tagging an item's category for the seller (and surfacing that tag to the platform's search engine)?
 # 
-# - **Business Impact**: Improved search results may affect engagement, conversion and AOV. If AOV increases by 5%, assuming a `$40` AOV and `$200K` revenue/month, our work increases revenue by `$100K`/year.  
+# - **Business Impact**: Improved search results may affect engagement, conversion and AOV. Assuming a (conservative) `$40` AOV and `$200K` revenue/month: if (a) rate of first orders increases by 5%, or (b) AOV increases by 5%, our ML efforts increase revenue by `$100K`/year.  
 
 # What approach would you recommend?
 
