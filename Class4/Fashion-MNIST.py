@@ -407,7 +407,7 @@ f1_score(y_true=y,
 # In[ ]:
 
 
-# Average performance across all classes, assuming all classes are equally important:
+# Avg performance across all classes, assuming all classes are equally important:
 f1_score(y_true=y,
          y_pred=y_pred_train,
          average='macro')
