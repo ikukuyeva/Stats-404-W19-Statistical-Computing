@@ -63,8 +63,7 @@ for file in s3.Bucket(bucket_name).objects.all():
 file_name = "https://s3.amazonaws.com/h2o-airlines-unpacked/year1987.csv"
 df = pd.read_csv(filepath_or_buffer=file_name,
                  encoding='latin-1',
-                 nrows=1000
-                )
+                 nrows=1000)
 
 
 # In[24]:
