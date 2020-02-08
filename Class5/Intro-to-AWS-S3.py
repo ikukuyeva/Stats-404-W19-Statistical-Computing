@@ -33,14 +33,16 @@ s3 = boto3.resource('s3')
 s3_fs = s3fs.S3FileSystem(anon=False)
 
 
-# View list of all buckets available on AWS. Note: These are mine -- yours will differ:
+# View list of all buckets available on AWS via `s3.buckets.all()`. 
 # 
+# My bucket for the project:
 
 # In[36]:
 
 
 for bucket in s3.buckets.all():
-    print(bucket.name)
+    if bucket.name == bucket_name:
+        print(bucket.name)
 
 
 # View list of objects in given bucket:
