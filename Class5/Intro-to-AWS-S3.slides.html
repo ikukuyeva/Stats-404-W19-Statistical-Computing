@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +36,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <!-- Loading the mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13069,45 +13068,6 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-
-    </style>
 
 
 <style type="text/css">
@@ -13248,22 +13208,34 @@ a.anchor-link {
 <li>Creating and adding AWS credentials to <code>.aws/credentials</code> file</li>
 <li>Creating and adding AWS region for computing resources in <code>.aws/config</code> file</li>
 </ul>
+<p>Reference for <code>s3fs</code> <a href="https://s3fs.readthedocs.io/en/latest/?badge=latest">here</a>; note:<code>s3fs</code> is a wrapper for <code>boto3</code>.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
 <span class="kn">import</span> <span class="nn">joblib</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Documentation: https://s3fs.readthedocs.io/en/latest/?badge=latest</span>
-<span class="c1"># Note: s3fs is a wrapper for boto3</span>
 <span class="kn">import</span> <span class="nn">s3fs</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Specify name of AWS S3 bucket you created:</span>
+<span class="n">bucket_name</span> <span class="o">=</span> <span class="s2">&quot;stats404-project&quot;</span>
 </pre></div>
 
     </div>
@@ -13280,7 +13252,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Approach 1: </span>
@@ -13295,22 +13267,24 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>View list of all buckets available on AWS. Note: These are mine -- yours will differ:</p>
+<p>View list of all buckets available on AWS via <code>s3.buckets.all()</code>.</p>
+<p>My bucket for the project:</p>
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">bucket</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">bucket</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">bucket_name</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">bucket</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13327,9 +13301,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>decision-trees
-stats404-project
-www.kukuyevaconsulting.com
+<pre>stats404-project
 </pre>
 </div>
 </div>
@@ -13337,7 +13309,7 @@ www.kukuyevaconsulting.com
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13348,71 +13320,10 @@ www.kukuyevaconsulting.com
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;stats404-project&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Upload-CSV-File-to-S3-Bucket">Upload CSV File to S3 Bucket<a class="anchor-link" href="#Upload-CSV-File-to-S3-Bucket">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># --- Step 1: Create a data set to upload -- or use one for your project:</span>
-<span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;https://s3.amazonaws.com/h2o-airlines-unpacked/year1987.csv&quot;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="n">file_name</span><span class="p">,</span>
-                 <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin-1&#39;</span><span class="p">,</span>
-                 <span class="n">nrows</span><span class="o">=</span><span class="mi">1000</span>
-                <span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># --- Step 2: Specify name of bucket to upload to:</span>
-<span class="n">bucket_name</span> <span class="o">=</span> <span class="s2">&quot;stats404-project&quot;</span>
-
-<span class="c1"># --- Step 3: Specify name of file to be created on s3, to store this CSV:</span>
-<span class="n">key_name</span> <span class="o">=</span> <span class="s2">&quot;airlines_data_1987_1000rows.csv&quot;</span>
-
-<span class="c1"># --- Step 4: Upload file to bucket and file name specified: </span>
-<span class="k">with</span> <span class="n">s3_fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{bucket_name}</span><span class="s2">/</span><span class="si">{key_name}</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># --- Step 5: Check that file got uploaded:</span>
-<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;stats404-project&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 
@@ -13431,6 +13342,94 @@ www.kukuyevaconsulting.com
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>airlines_data_1987_1000rows.csv
+rf_Fashion_MNIST_500_trees.joblib
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Upload-CSV-File-to-S3-Bucket">Upload CSV File to S3 Bucket<a class="anchor-link" href="#Upload-CSV-File-to-S3-Bucket">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># --- Step 1: Create a data set to upload -- or use one for your project:</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;https://s3.amazonaws.com/h2o-airlines-unpacked/year1987.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="n">file_name</span><span class="p">,</span>
+                 <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin-1&#39;</span><span class="p">,</span>
+                 <span class="n">nrows</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># --- Step 2: Specify name of file to be created on s3, to store this CSV:</span>
+<span class="n">key_name</span> <span class="o">=</span> <span class="s2">&quot;airlines_data_1987_1000rows.csv&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># --- Step 3: Upload file to bucket and file name specified: </span>
+<span class="k">with</span> <span class="n">s3_fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{bucket_name}</span><span class="s2">/</span><span class="si">{key_name}</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># --- Step 4: Check that file got uploaded:</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>airlines_data_1987_1000rows.csv
+rf_Fashion_MNIST_500_trees.joblib
 </pre>
 </div>
 </div>
@@ -13448,7 +13447,7 @@ www.kukuyevaconsulting.com
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># --- Step 1: Load a previously estimated model object in workspace:</span>
@@ -13464,14 +13463,14 @@ www.kukuyevaconsulting.com
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># --- Step 3: Specify name of file to be created on s3, to store this model object:</span>
 <span class="n">key_name</span> <span class="o">=</span> <span class="s2">&quot;rf_Fashion_MNIST_500_trees.joblib&quot;</span>
 
 <span class="c1"># --- Step 4: Upload file to bucket and file name specified:</span>
-<span class="k">with</span> <span class="n">s3_fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{bucket_name}</span><span class="s2">/</span><span class="si">{key_name}</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span class="k">with</span> <span class="n">s3_fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{bucket_name}</span><span class="s2">/</span><span class="si">{key_name}</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">rf_dict</span><span class="p">[</span><span class="mi">500</span><span class="p">],</span> <span class="n">file</span><span class="p">)</span> 
 </pre></div>
 
@@ -13482,11 +13481,11 @@ www.kukuyevaconsulting.com
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># --- Step 5: Check that file got uploaded:</span>
-<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;stats404-project&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 
