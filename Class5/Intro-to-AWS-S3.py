@@ -19,6 +19,8 @@ import pandas as pd
 import s3fs 
 
 
+# Specify name of AWS S3 bucket you created:
+bucket_name = "stats404-project"
 # ## Connect to S3 Bucket on AWS
 
 # In[40]:
@@ -47,7 +49,7 @@ for bucket in s3.buckets.all():
 # In[21]:
 
 
-for file in s3.Bucket('stats404-project').objects.all():
+for file in s3.Bucket(bucket_name).objects.all():
     print(file.key)
 
 
@@ -67,8 +69,6 @@ df = pd.read_csv(filepath_or_buffer=file_name,
 # In[24]:
 
 
-# --- Step 2: Specify name of bucket to upload to:
-bucket_name = "stats404-project"
 
 # --- Step 3: Specify name of file to be created on s3, to store this CSV:
 key_name = "airlines_data_1987_1000rows.csv"
@@ -82,7 +82,7 @@ with s3_fs.open(f"{bucket_name}/{key_name}","w") as file:
 
 
 # --- Step 5: Check that file got uploaded:
-for file in s3.Bucket('stats404-project').objects.all():
+for file in s3.Bucket(bucket_name).objects.all():
     print(file.key)
 
 
@@ -112,7 +112,7 @@ with s3_fs.open(f"{bucket_name}/{key_name}","wb") as file:
 
 
 # --- Step 5: Check that file got uploaded:
-for file in s3.Bucket('stats404-project').objects.all():
+for file in s3.Bucket(bucket_name).objects.all():
     print(file.key)
 
 
