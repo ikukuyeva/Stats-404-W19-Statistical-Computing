@@ -31,7 +31,7 @@ file_name = "https://s3.amazonaws.com/h2o-airlines-unpacked/year2012.csv"
 # In[3]:
 
 
-get_ipython().run_cell_magic('time', '', 'df = pd.read_csv(filepath_or_buffer=file_name,\n                 encoding=\'latin-1\')\n# df = pd.read_csv("../Class3/2012.csv")')
+get_ipython().run_cell_magic('time', '', 'df = pd.read_csv(filepath_or_buffer=file_name,\n                 encoding=\'latin-1\'\n                )\n# df = pd.read_csv("../Class3/2012.csv")')
 
 
 # Parsing output, per [SO](https://stackoverflow.com/questions/556405/what-do-real-user-and-sys-mean-in-the-output-of-time1/556411#556411):
@@ -276,7 +276,7 @@ def delays_requiring_compensation_vec(arrival_delay, departure_delay):
 # In[114]:
 
 
-get_ipython().run_cell_magic('time', '', "df['compensated_delays_vec'] = delays_requiring_compensation_vec(df['ArrDelay'], df['DepDelay'])")
+get_ipython().run_cell_magic('time', '', "df['compensated_delays_vec'] = delays_requiring_compensation_vec(df['ArrDelay'], \n                                                                 df['DepDelay'])")
 
 
 # In[115]:
@@ -305,7 +305,7 @@ type(df['ArrDelay'].values)
 # In[118]:
 
 
-get_ipython().run_cell_magic('time', '', "df['compensated_delays_vec_np'] = delays_requiring_compensation_vec(df['ArrDelay'].values, df['DepDelay'].values)")
+get_ipython().run_cell_magic('time', '', "df['compensated_delays_vec_np'] = delays_requiring_compensation_vec(df['ArrDelay'].values, \n                                                                    df['DepDelay'].values)")
 
 
 # In[119]:
