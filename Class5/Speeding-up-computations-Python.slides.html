@@ -13209,7 +13209,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
@@ -13245,7 +13245,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;https://s3.amazonaws.com/h2o-airlines-unpacked/year2012.csv&quot;</span>
@@ -13258,7 +13258,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13281,8 +13281,8 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 18.1 s, sys: 4.48 s, total: 22.6 s
-Wall time: 2min 5s
+<pre>CPU times: user 15.7 s, sys: 4.09 s, total: 19.8 s
+Wall time: 1min 35s
 </pre>
 </div>
 </div>
@@ -13307,7 +13307,7 @@ Wall time: 2min 5s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
@@ -13323,7 +13323,7 @@ Wall time: 2min 5s
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -13340,7 +13340,7 @@ Wall time: 2min 5s
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13361,35 +13361,35 @@ Wall time: 2min 5s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 507 ms, sys: 22.4 ms, total: 529 ms
-Wall time: 524 ms
+<pre>CPU times: user 497 ms, sys: 20.1 ms, total: 518 ms
+Wall time: 508 ms
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[6]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>WN    1140535
-US     404263
-B6     229056
-AA     525220
+<pre>UA     531245
 FL     218162
-F9      79255
-VX      54742
-UA     531245
-AS     147569
-YV     133976
-EV     740855
-MQ     473140
 DL     726879
-HA      74109
 OO     617756
+F9      79255
+AS     147569
+WN    1140535
+VX      54742
+US     404263
+AA     525220
+YV     133976
+HA      74109
+MQ     473140
+B6     229056
+EV     740855
 Name: UniqueCarrier, dtype: int64</pre>
 </div>
 
@@ -13409,7 +13409,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13444,8 +13444,8 @@ Name: UniqueCarrier, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 25.5 s, sys: 5.99 s, total: 31.5 s
-Wall time: 1min 41s
+<pre>CPU times: user 29.7 s, sys: 6.88 s, total: 36.6 s
+Wall time: 2min 24s
 </pre>
 </div>
 </div>
@@ -13485,7 +13485,7 @@ Wall time: 1min 41s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>it
@@ -13506,7 +13506,7 @@ Wall time: 1min 41s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1.09 s ± 228 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<pre>973 ms ± 35.7 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre>
 </div>
 </div>
@@ -13517,7 +13517,7 @@ Wall time: 1min 41s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13540,8 +13540,8 @@ Wall time: 1min 41s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 101 ms, sys: 23.1 ms, total: 124 ms
-Wall time: 1.05 s
+<pre>CPU times: user 85.2 ms, sys: 17.2 ms, total: 102 ms
+Wall time: 954 ms
 </pre>
 </div>
 </div>
@@ -13628,7 +13628,7 @@ Wall time: 1.05 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_rows</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -13643,7 +13643,7 @@ Wall time: 1.05 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13665,8 +13665,8 @@ Wall time: 1.05 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 44.1 s, sys: 201 ms, total: 44.3 s
-Wall time: 44.4 s
+<pre>CPU times: user 43.2 s, sys: 195 ms, total: 43.4 s
+Wall time: 43.5 s
 </pre>
 </div>
 </div>
@@ -13677,7 +13677,7 @@ Wall time: 44.4 s
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13698,8 +13698,8 @@ Wall time: 44.4 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 1.16 s, sys: 252 ms, total: 1.41 s
-Wall time: 1.42 s
+<pre>CPU times: user 1.19 s, sys: 283 ms, total: 1.47 s
+Wall time: 1.48 s
 </pre>
 </div>
 </div>
@@ -13710,7 +13710,7 @@ Wall time: 1.42 s
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>it
@@ -13731,7 +13731,7 @@ Wall time: 1.42 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>99 ms ± 5.12 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<pre>103 ms ± 5.21 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre>
 </div>
 </div>
@@ -13742,7 +13742,7 @@ Wall time: 1.42 s
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>it
@@ -13763,7 +13763,7 @@ Wall time: 1.42 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>4.14 s ± 83.7 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<pre>4.2 s ± 230 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre>
 </div>
 </div>
@@ -13789,7 +13789,7 @@ Wall time: 1.42 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">bin_departure_delays</span><span class="p">(</span><span class="n">delay_min</span><span class="p">):</span>
@@ -13814,7 +13814,7 @@ Wall time: 1.42 s
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13835,8 +13835,8 @@ Wall time: 1.42 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 1.76 s, sys: 109 ms, total: 1.87 s
-Wall time: 1.54 s
+<pre>CPU times: user 2.01 s, sys: 142 ms, total: 2.15 s
+Wall time: 1.72 s
 </pre>
 </div>
 </div>
@@ -13847,7 +13847,7 @@ Wall time: 1.54 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">delay_bin</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -13863,7 +13863,7 @@ Wall time: 1.54 s
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -13886,7 +13886,7 @@ Name: DepDelay, dtype: int64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13911,8 +13911,8 @@ Name: DepDelay, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 867 ms, sys: 90.2 ms, total: 957 ms
-Wall time: 243 ms
+<pre>CPU times: user 830 ms, sys: 85.3 ms, total: 916 ms
+Wall time: 231 ms
 </pre>
 </div>
 </div>
@@ -13923,7 +13923,7 @@ Wall time: 243 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">delay_bin_cut</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -13939,7 +13939,7 @@ Wall time: 243 ms
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -14001,7 +14001,7 @@ Name: DepDelay, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">delays_requiring_compensation</span><span class="p">(</span><span class="n">arrival_delay</span><span class="p">,</span> <span class="n">departure_delay</span><span class="p">):</span>
@@ -14030,7 +14030,7 @@ Name: DepDelay, dtype: int64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -14053,8 +14053,8 @@ Name: DepDelay, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 2min 23s, sys: 852 ms, total: 2min 24s
-Wall time: 2min 25s
+<pre>CPU times: user 2min 13s, sys: 634 ms, total: 2min 14s
+Wall time: 2min 14s
 </pre>
 </div>
 </div>
@@ -14065,7 +14065,7 @@ Wall time: 2min 25s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Counter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;compensated_delays&#39;</span><span class="p">])</span>
@@ -14081,7 +14081,7 @@ Wall time: 2min 25s
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
 
@@ -14106,7 +14106,7 @@ Wall time: 2min 25s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="o">|</span> <span class="kc">True</span><span class="p">)</span>
@@ -14143,7 +14143,7 @@ False
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">delays_requiring_compensation_vec</span><span class="p">(</span><span class="n">arrival_delay</span><span class="p">,</span> <span class="n">departure_delay</span><span class="p">):</span>
@@ -14172,7 +14172,7 @@ False
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -14193,8 +14193,8 @@ False
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 50.9 ms, sys: 14.3 ms, total: 65.2 ms
-Wall time: 25.4 ms
+<pre>CPU times: user 45.9 ms, sys: 11.1 ms, total: 57.1 ms
+Wall time: 22.2 ms
 </pre>
 </div>
 </div>
@@ -14205,7 +14205,7 @@ Wall time: 25.4 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Counter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;compensated_delays_vec&#39;</span><span class="p">])</span>
@@ -14221,7 +14221,7 @@ Wall time: 25.4 ms
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[26]:</div>
+    <div class="prompt output_prompt">Out[25]:</div>
 
 
 
@@ -14253,10 +14253,43 @@ Wall time: 25.4 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ArrDelay&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[26]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pandas.core.series.Series</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ArrDelay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14275,39 +14308,6 @@ Wall time: 25.4 ms
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>pandas.core.series.Series</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ArrDelay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[28]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
 <pre>numpy.ndarray</pre>
 </div>
 
@@ -14319,7 +14319,7 @@ Wall time: 25.4 ms
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -14340,8 +14340,8 @@ Wall time: 25.4 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 18.7 ms, sys: 3.84 ms, total: 22.5 ms
-Wall time: 15.1 ms
+<pre>CPU times: user 21.7 ms, sys: 3.76 ms, total: 25.4 ms
+Wall time: 19 ms
 </pre>
 </div>
 </div>
@@ -14364,7 +14364,7 @@ Wall time: 15.1 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Counter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;compensated_delays_vec_np&#39;</span><span class="p">])</span>
@@ -14380,7 +14380,7 @@ Wall time: 15.1 ms
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[30]:</div>
+    <div class="prompt output_prompt">Out[29]:</div>
 
 
 
@@ -14427,7 +14427,7 @@ Wall time: 15.1 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -14448,15 +14448,15 @@ Wall time: 15.1 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 48.3 s, sys: 22.3 s, total: 1min 10s
-Wall time: 1min 42s
+<pre>CPU times: user 48.3 s, sys: 20.5 s, total: 1min 8s
+Wall time: 1min 43s
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[31]:</div>
+    <div class="prompt output_prompt">Out[30]:</div>
 
 
 
@@ -14534,7 +14534,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Path to repository on my machine:</span>
@@ -14549,7 +14549,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load Fashion-MNIST data set using helper function from Fashion-MNIST repository:</span>
@@ -14565,7 +14565,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rf_base</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
@@ -14591,7 +14591,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 500 out of 500 | elapsed:   33.0s finished
+[Parallel(n_jobs=1)]: Done 500 out of 500 | elapsed:   32.6s finished
 </pre>
 </div>
 </div>
@@ -14610,7 +14610,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">RandomForestClassifier</span><span class="p">)</span>
@@ -14626,7 +14626,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[35]:</div>
+    <div class="prompt output_prompt">Out[34]:</div>
 
 
 
@@ -14655,7 +14655,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rf_base_parallel2</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
@@ -14682,10 +14682,10 @@ Name: UniqueCarrier, dtype: int64</pre>
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>[Parallel(n_jobs=2)]: Using backend ThreadingBackend with 2 concurrent workers.
-[Parallel(n_jobs=2)]: Done  46 tasks      | elapsed:    1.7s
-[Parallel(n_jobs=2)]: Done 196 tasks      | elapsed:    7.0s
-[Parallel(n_jobs=2)]: Done 446 tasks      | elapsed:   15.0s
-[Parallel(n_jobs=2)]: Done 500 out of 500 | elapsed:   16.7s finished
+[Parallel(n_jobs=2)]: Done  46 tasks      | elapsed:    1.5s
+[Parallel(n_jobs=2)]: Done 196 tasks      | elapsed:    6.8s
+[Parallel(n_jobs=2)]: Done 446 tasks      | elapsed:   15.6s
+[Parallel(n_jobs=2)]: Done 500 out of 500 | elapsed:   17.6s finished
 </pre>
 </div>
 </div>
@@ -14704,7 +14704,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rf_base_parallel4</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
@@ -14731,10 +14731,10 @@ Name: UniqueCarrier, dtype: int64</pre>
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>[Parallel(n_jobs=4)]: Using backend ThreadingBackend with 4 concurrent workers.
-[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    0.8s
-[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:    3.3s
-[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed:    7.7s
-[Parallel(n_jobs=4)]: Done 500 out of 500 | elapsed:    8.6s finished
+[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    1.0s
+[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:    4.1s
+[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed:    8.8s
+[Parallel(n_jobs=4)]: Done 500 out of 500 | elapsed:    9.8s finished
 </pre>
 </div>
 </div>
@@ -14760,7 +14760,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rf_spec</span><span class="p">(</span><span class="n">num_trees</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">outcome</span><span class="o">=</span><span class="n">y</span><span class="p">):</span>
@@ -14783,7 +14783,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">n_trees</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">2500</span><span class="p">]</span>
@@ -14803,7 +14803,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">num_trees</span> <span class="ow">in</span> <span class="n">n_trees</span><span class="p">:</span>
@@ -14825,19 +14825,19 @@ Name: UniqueCarrier, dtype: int64</pre>
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done  50 out of  50 | elapsed:    3.2s finished
+[Parallel(n_jobs=1)]: Done  50 out of  50 | elapsed:    3.1s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 100 out of 100 | elapsed:    6.8s finished
+[Parallel(n_jobs=1)]: Done 100 out of 100 | elapsed:    7.1s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 250 out of 250 | elapsed:   16.1s finished
+[Parallel(n_jobs=1)]: Done 250 out of 250 | elapsed:   16.9s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 500 out of 500 | elapsed:   30.6s finished
+[Parallel(n_jobs=1)]: Done 500 out of 500 | elapsed:   31.1s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 1000 out of 1000 | elapsed:  1.1min finished
+[Parallel(n_jobs=1)]: Done 1000 out of 1000 | elapsed:  1.0min finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 1500 out of 1500 | elapsed:  1.7min finished
+[Parallel(n_jobs=1)]: Done 1500 out of 1500 | elapsed:  1.6min finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 2500 out of 2500 | elapsed:  2.7min finished
+[Parallel(n_jobs=1)]: Done 2500 out of 2500 | elapsed:  2.5min finished
 </pre>
 </div>
 </div>
@@ -14855,7 +14855,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Per http://academic.bancey.com/parallelization-in-python-example-with-joblib/</span>
@@ -14881,17 +14881,17 @@ Name: UniqueCarrier, dtype: int64</pre>
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done  50 out of  50 | elapsed:    4.1s finished
+[Parallel(n_jobs=1)]: Done  50 out of  50 | elapsed:    3.8s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 100 out of 100 | elapsed:    8.6s finished
+[Parallel(n_jobs=1)]: Done 100 out of 100 | elapsed:    7.7s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 250 out of 250 | elapsed:   21.1s finished
+[Parallel(n_jobs=1)]: Done 250 out of 250 | elapsed:   18.7s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 500 out of 500 | elapsed:   41.6s finished
-[Parallel(n_jobs=1)]: Done 1000 out of 1000 | elapsed:  1.3min finished
-[Parallel(n_jobs=1)]: Done 1500 out of 1500 | elapsed:  2.0min finished
-[Parallel(n_jobs=1)]: Done 2500 out of 2500 | elapsed:  3.1min finished
-[Parallel(n_jobs=4)]: Done   7 out of   7 | elapsed:  3.6min finished
+[Parallel(n_jobs=1)]: Done 500 out of 500 | elapsed:   37.1s finished
+[Parallel(n_jobs=1)]: Done 1000 out of 1000 | elapsed:  1.2min finished
+[Parallel(n_jobs=1)]: Done 1500 out of 1500 | elapsed:  1.7min finished
+[Parallel(n_jobs=1)]: Done 2500 out of 2500 | elapsed:  2.6min finished
+[Parallel(n_jobs=4)]: Done   7 out of   7 | elapsed:  3.1min finished
 </pre>
 </div>
 </div>
