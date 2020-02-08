@@ -34,6 +34,12 @@ file_name = "https://s3.amazonaws.com/h2o-airlines-unpacked/year2012.csv"
 get_ipython().run_cell_magic('time', '', 'df = pd.read_csv(filepath_or_buffer=file_name,\n                 encoding=\'latin-1\')\n# df = pd.read_csv("../Class3/2012.csv")')
 
 
+# Parsing output, per [SO](https://stackoverflow.com/questions/556405/what-do-real-user-and-sys-mean-in-the-output-of-time1/556411#556411):
+# - **Wall time**: "time from start to finish of the call". 
+# - **User time**: CPU time outside the kernel within the process, such as in library code. 
+# - **Sys time**: CPU time inside the kernel within the process. 
+# - **User + Sys time**: how much actual CPU time your process used. 
+
 # In[5]:
 
 
@@ -47,7 +53,7 @@ get_ipython().run_cell_magic('time', '', 'df["UniqueCarrier"].value_counts(sort=
 
 
 # ### 1. `pandas` - Read File in Chunks
-# Reference: https://towardsdatascience.com/why-and-how-to-use-pandas-with-large-data-9594dda2ea4c
+# [Reference](https://towardsdatascience.com/why-and-how-to-use-pandas-with-large-data-9594dda2ea4c)
 
 # In[7]:
 
