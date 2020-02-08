@@ -6,6 +6,8 @@
 # - Installation of `boto3`
 # - Creating and adding AWS credentials to `.aws/credentials` file
 # - Creating and adding AWS region for computing resources in `.aws/config` file
+# 
+# Reference for `s3fs` [here](https://s3fs.readthedocs.io/en/latest/?badge=latest); note:`s3fs` is a wrapper for `boto3`.
 
 # In[39]:
 
@@ -13,9 +15,6 @@
 import boto3
 import joblib
 import pandas as pd
-
-# Documentation: https://s3fs.readthedocs.io/en/latest/?badge=latest
-# Note: s3fs is a wrapper for boto3
 import s3fs 
 
 
@@ -70,10 +69,10 @@ df = pd.read_csv(filepath_or_buffer=file_name,
 
 
 
-# --- Step 3: Specify name of file to be created on s3, to store this CSV:
+# --- Step 2: Specify name of file to be created on s3, to store this CSV:
 key_name = "airlines_data_1987_1000rows.csv"
 
-# --- Step 4: Upload file to bucket and file name specified: 
+# --- Step 3: Upload file to bucket and file name specified: 
 with s3_fs.open(f"{bucket_name}/{key_name}","w") as file:
     df.to_csv(file)
 
@@ -81,7 +80,7 @@ with s3_fs.open(f"{bucket_name}/{key_name}","w") as file:
 # In[25]:
 
 
-# --- Step 5: Check that file got uploaded:
+# --- Step 4: Check that file got uploaded:
 for file in s3.Bucket(bucket_name).objects.all():
     print(file.key)
 
