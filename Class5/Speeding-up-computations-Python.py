@@ -183,7 +183,7 @@ delay_bin.value_counts()
 # In[59]:
 
 
-get_ipython().run_cell_magic('time', '', 'delay_bin_cut = pd.cut(df[\'DepDelay\'],\n                       bins=[-20000, -60.0, 15, 30, 60, 120, 10000],\n                       labels=["missing_delay", "no_delay", "small_delay", "medium_delay", "big_delay", "compensated_delay"],\n                       include_lowest=True,\n                       right=False)')
+get_ipython().run_cell_magic('time', '', 'delay_bin_cut = pd.cut(df[\'DepDelay\'].fillna(-9999),\n                       bins=[-20000, -60.0, 15, 30, 60, 120, 10000],\n                       labels=["missing_delay", "no_delay", "small_delay", "medium_delay", "big_delay", "compensated_delay"],\n                       include_lowest=True,\n                       right=False)')
 
 
 # In[60]:
