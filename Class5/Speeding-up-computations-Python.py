@@ -89,11 +89,11 @@ get_ipython().run_cell_magic('time', '', "df_dask = dd.read_csv(file_name,\n    
 # ### 4. `pySpark` -- Read File as is
 # [Documentation](https://spark.apache.org/docs/2.2.0/) and more examples of Airlines data set [analysis](https://github.com/goldshtn/spark-workshop/blob/master/scala/lab2-airlines.md) in `pySpark`
 
-# Please go this [Databricks notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/7565198439641616/2474892018501188/7912616974346672/latest.html) to view `pySpark` code that reads-in Airlines dataset.
+# Please go this [Databricks notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/2873656090782679/2252219718088020/7574928746777728/latest.html) to view `pySpark` code that reads-in Airlines dataset.
 
 # Time duration (seconds) = 90 seconds (0.02 to get `file_name`, 60.02 to read into DBFS and 29.93 to read into notebook)
 
-# To run the code, you'll need a Databricks account (see class slides on instructions) to `Import Notebook` into. (`Import Notebook` prompt is at top-right of screen of the [Databricks notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/7565198439641616/2474892018501188/7912616974346672/latest.html))
+# To run the code, you'll need a Databricks account (see class slides on instructions) to `Import Notebook` into. (`Import Notebook` prompt is at top-right of screen of the [Databricks notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/2873656090782679/2252219718088020/7574928746777728/latest.html))
 
 # ### Which was the fastest for reading-in Airlines data set?
 
@@ -328,7 +328,7 @@ get_ipython().run_cell_magic('time', '', "df_dask['UniqueCarrier'].value_counts(
 # ![Warning](./images/warning.png) Per [bug submission](https://github.com/dask/dask/issues/442), while Dask's `value_counts()` [documentation](http://docs.dask.org/en/latest/dataframe-api.html) states that you can sort results as in `pandas`, Dask does not have that functionality implemented.
 
 # ### 4. `pySpark` + `SparkSQL`
-# Please go this [Databricks notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/7565198439641616/2474892018501188/7912616974346672/latest.html) to view `SparkSQL` code that performs counts by airline carrier for Airlines dataset.
+# Please go this [Databricks notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/2873656090782679/2252219718088020/7574928746777728/latest.html) to view `SparkSQL` code that performs counts by airline carrier for Airlines dataset.
 
 # Time duration (seconds) = 7.35 seconds (0.05 s to specify that we'll be running SparkSQL against dataset, 7.33 s to perform aggregation)
 
