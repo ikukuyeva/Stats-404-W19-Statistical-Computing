@@ -154,20 +154,18 @@ get_ipython().run_cell_magic('timeit', '', "delay_hr_applymap = df[['DepDelay', 
 
 
 def bin_departure_delays(delay_min):
-    if (delay_min < -60):
-        return "missing_delay"
-    elif (delay_min >= -60) & (delay_min < 15):
+    if (delay_min >= -60.0) & (delay_min < 15.0):
         return "no_delay"
-    elif (delay_min >= 15) & (delay_min < 30):
+    elif (delay_min >= 15.0) & (delay_min < 30.0):
         return "small_delay"
-    elif (delay_min >= 30) & (delay_min < 60):
+    elif (delay_min >= 30.0) & (delay_min < 60.0):
         return "medium_delay"        
-    elif (delay_min >= 60) & (delay_min < 120):
+    elif (delay_min >= 60.0) & (delay_min < 120.0):
         return "big_delay"        
-    elif (delay_min >= 120):
+    elif (delay_min >= 120.0):
         return "compensated_delay"        
     else:
-        return "other_delay"
+        return "missing_delay"
 
 
 # In[57]:
