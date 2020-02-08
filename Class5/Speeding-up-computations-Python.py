@@ -269,9 +269,9 @@ def delays_requiring_compensation_vec(arrival_delay, departure_delay):
              so long that passenger got compensated
     """
     count_arrival_delays = arrival_delay >= (3 * 60.0)
-    count_depaprture_delays = departure_delay >= (2 * 60.0)
+    count_departure_delays = departure_delay >= (2 * 60.0)
     # Leveraging Boolean logic:
-    compensated_delays = count_arrival_delays | count_depaprture_delays
+    compensated_delays = count_arrival_delays | count_departure_delays
     return compensated_delays
 
 
