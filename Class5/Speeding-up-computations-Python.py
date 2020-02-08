@@ -222,7 +222,7 @@ def delays_requiring_compensation(arrival_delay, departure_delay):
              so long that passenger got compensated
     """
     count = 0
-    if (arrival_delay/60.0 >= 3) | (departure_delay/60.0 >= 2):
+    if (arrival_delay >= 3.0 * 60.0) | (departure_delay >= 2.0 * 60.0):
         # If arrival delay is 3+ hours, or if departure delay is 2+ hours:
         count += 1
     return count
