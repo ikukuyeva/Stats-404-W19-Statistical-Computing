@@ -17,7 +17,7 @@
     - Class 3 lecture [slides](http://bit.ly/2Gkl7ZB) and [code](https://github.com/ikukuyeva/Stats-404-W19-Statistical-Computing/tree/master/Class3)
     - Class 4 lecture [slides](http://bit.ly/2SbsPKX) and [code](https://github.com/ikukuyeva/Stats-404-W19-Statistical-Computing/tree/master/Class4)
 - **Week 6**: Python and Big Data: pandas and big data, Dask, pySpark + SparkSQL, embarrassingly parallel processes, AWS S3
-  - Class 5 lecture [slides](https://goo.gl/ifKAcV) and [code](https://github.com/ikukuyeva/Stats-404-W19-Statistical-Computing/tree/master/Class5)
+  - Class 5 lecture [slides](http://bit.ly/2H3CZID) and [code](https://github.com/ikukuyeva/Stats-404-W19-Statistical-Computing/tree/master/Class5)
 - **Weeks 7 and 8**: Introduction to Software Development
   - Class 6 lecture [slides](http://bit.ly/2EhK3AL) and [code](https://github.com/ikukuyeva/Stats-404-W19-Statistical-Computing/tree/master/Class6): robustness, reproducibility, readability
   - Class 7 lecture [slides](http://bit.ly/2tCRSee) and [code](https://github.com/ikukuyeva/Stats-404-W19-Statistical-Computing/tree/master/Class7):  testing suite, ML test, typing, model roll-out

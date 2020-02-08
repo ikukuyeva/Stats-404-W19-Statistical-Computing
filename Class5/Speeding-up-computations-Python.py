@@ -31,8 +31,14 @@ file_name = "https://s3.amazonaws.com/h2o-airlines-unpacked/year2012.csv"
 # In[3]:
 
 
-get_ipython().run_cell_magic('time', '', 'df = pd.read_csv(filepath_or_buffer=file_name,\n                 encoding=\'latin-1\')\n# df = pd.read_csv("../Class3/2012.csv")')
+get_ipython().run_cell_magic('time', '', 'df = pd.read_csv(filepath_or_buffer=file_name,\n                 encoding=\'latin-1\'\n                )\n# df = pd.read_csv("../Class3/2012.csv")')
 
+
+# Parsing output, per [SO](https://stackoverflow.com/questions/556405/what-do-real-user-and-sys-mean-in-the-output-of-time1/556411#556411):
+# - **Wall time**: "time from start to finish of the call". 
+# - **User time**: CPU time outside the kernel within the process, such as in library code. 
+# - **Sys time**: CPU time inside the kernel within the process. 
+# - **User + Sys time**: how much actual CPU time your process used. 
 
 # In[5]:
 
@@ -46,8 +52,11 @@ df.shape
 get_ipython().run_cell_magic('time', '', 'df["UniqueCarrier"].value_counts(sort=False)')
 
 
+# Recode missing values to large negative # as compensated delays are large positive #s:
+df["DepDelay"] = df["DepDelay"].fillna(-9999)
+df["ArrDelay"] = df["ArrDelay"].fillna(-9999)
 # ### 1. `pandas` - Read File in Chunks
-# Reference: https://towardsdatascience.com/why-and-how-to-use-pandas-with-large-data-9594dda2ea4c
+# [Reference](https://towardsdatascience.com/why-and-how-to-use-pandas-with-large-data-9594dda2ea4c)
 
 # In[7]:
 
@@ -83,11 +92,11 @@ get_ipython().run_cell_magic('time', '', "df_dask = dd.read_csv(file_name,\n    
 # ### 4. `pySpark` -- Read File as is
 # [Documentation](https://spark.apache.org/docs/2.2.0/) and more examples of Airlines data set [analysis](https://github.com/goldshtn/spark-workshop/blob/master/scala/lab2-airlines.md) in `pySpark`
 
-# Please go this [Databricks notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/7565198439641616/2474892018501188/7912616974346672/latest.html) to view `pySpark` code that reads-in Airlines dataset.
+# Please go this [Databricks notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/2873656090782679/2252219718088020/7574928746777728/latest.html) to view `pySpark` code that reads-in Airlines dataset.
 
 # Time duration (seconds) = 90 seconds (0.02 to get `file_name`, 60.02 to read into DBFS and 29.93 to read into notebook)
 
-# To run the code, you'll need a Databricks account (see class slides on instructions) to `Import Notebook` into. (`Import Notebook` prompt is at top-right of screen of the [Databricks notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/7565198439641616/2474892018501188/7912616974346672/latest.html))
+# To run the code, you'll need a Databricks account (see class slides on instructions) to `Import Notebook` into. (`Import Notebook` prompt is at top-right of screen of the [Databricks notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/2873656090782679/2252219718088020/7574928746777728/latest.html))
 
 # ### Which was the fastest for reading-in Airlines data set?
 
@@ -95,6 +104,7 @@ get_ipython().run_cell_magic('time', '', "df_dask = dd.read_csv(file_name,\n    
 
 # ### 1. `pandas`
 # Suggested (non-exhaustive) list of approaches:
+# - Pre-allocate (vs `append()` to) lists, etc.
 # - Drop [unnecessary columns](https://realpython.com/python-data-cleaning-numpy-pandas/#dropping-columns-in-a-dataframe)
 # - Create a better index for [faster subsetting](https://realpython.com/python-data-cleaning-numpy-pandas/#changing-the-index-of-a-dataframe)
 # - Type optimization of variables in dataset, per [this](https://www.dataquest.io/blog/pandas-big-data/) and [this](https://medium.com/@vincentteyssier/optimizing-the-size-of-a-pandas-dataframe-for-low-memory-environment-5f07db3d72e) blog post
@@ -144,15 +154,15 @@ get_ipython().run_cell_magic('timeit', '', "delay_hr_applymap = df[['DepDelay', 
 
 
 def bin_departure_delays(delay_min):
-    if delay_min <= 15:
+    if (delay_min >= -60.0) & (delay_min < 15.0):
         return "no_delay"
-    elif (delay_min > 15) & (delay_min <= 30):
+    elif (delay_min >= 15.0) & (delay_min < 30.0):
         return "small_delay"
-    elif (delay_min > 30) & (delay_min <= 60):
+    elif (delay_min >= 30.0) & (delay_min < 60.0):
         return "medium_delay"        
-    elif (delay_min > 60) & (delay_min <= 120):
+    elif (delay_min >= 60.0) & (delay_min < 120.0):
         return "big_delay"        
-    elif (delay_min > 120):
+    elif (delay_min >= 120.0):
         return "compensated_delay"        
     else:
         return "missing_delay"
@@ -173,7 +183,7 @@ delay_bin.value_counts()
 # In[59]:
 
 
-get_ipython().run_cell_magic('time', '', 'df[\'DepDelay\'] = df[\'DepDelay\'].fillna(9999)\ndelay_bin_cut = pd.cut(df[\'DepDelay\'],\n                       bins=[-10000, 15, 30, 60, 120, 3000, 10000],\n                       labels=["no_delay", "small_delay", "medium_delay", "big_delay", "compensated_delay", "missing_delay"]\n                      )')
+get_ipython().run_cell_magic('time', '', 'delay_bin_cut = pd.cut(df[\'DepDelay\'].fillna(-9999),\n                       bins=[-20000, -60.0, 15, 30, 60, 120, 10000],\n                       labels=["missing_delay", "no_delay", "small_delay", "medium_delay", "big_delay", "compensated_delay"],\n                       include_lowest=True,\n                       right=False)')
 
 
 # In[60]:
@@ -185,7 +195,7 @@ delay_bin_cut.value_counts()
 # More [examples](https://realpython.com/fast-flexible-pandas/)
 # 
 
-# ### Which was the fastest for binning?
+# ### Which was the fastest for binning departure delays?
 
 # #### b. Vectorization
 
@@ -212,7 +222,7 @@ def delays_requiring_compensation(arrival_delay, departure_delay):
              so long that passenger got compensated
     """
     count = 0
-    if (arrival_delay/60.0 >= 3) | (departure_delay/60.0 >= 2):
+    if (arrival_delay >= 3.0 * 60.0) | (departure_delay >= 2.0 * 60.0):
         # If arrival delay is 3+ hours, or if departure delay is 2+ hours:
         count += 1
     return count
@@ -257,16 +267,16 @@ def delays_requiring_compensation_vec(arrival_delay, departure_delay):
              so long that passenger got compensated
     """
     count_arrival_delays = arrival_delay >= (3 * 60.0)
-    count_depaprture_delays = departure_delay >= (2 * 60.0)
+    count_departure_delays = departure_delay >= (2 * 60.0)
     # Leveraging Boolean logic:
-    compensated_delays = count_arrival_delays | count_depaprture_delays
+    compensated_delays = count_arrival_delays | count_departure_delays
     return compensated_delays
 
 
 # In[114]:
 
 
-get_ipython().run_cell_magic('time', '', "df['compensated_delays_vec'] = delays_requiring_compensation_vec(df['ArrDelay'], df['DepDelay'])")
+get_ipython().run_cell_magic('time', '', "df['compensated_delays_vec'] = delays_requiring_compensation_vec(df['ArrDelay'], \n                                                                 df['DepDelay'])")
 
 
 # In[115]:
@@ -295,7 +305,7 @@ type(df['ArrDelay'].values)
 # In[118]:
 
 
-get_ipython().run_cell_magic('time', '', "df['compensated_delays_vec_np'] = delays_requiring_compensation_vec(df['ArrDelay'].values, df['DepDelay'].values)")
+get_ipython().run_cell_magic('time', '', "df['compensated_delays_vec_np'] = delays_requiring_compensation_vec(df['ArrDelay'].values, \n                                                                    df['DepDelay'].values)")
 
 
 # In[119]:
@@ -307,6 +317,8 @@ Counter(df['compensated_delays_vec_np'])
 # More examples: [here](https://engineering.upside.com/a-beginners-guide-to-optimizing-pandas-code-for-speed-c09ef2c6a4d6) and [here](https://jakevdp.github.io/PythonDataScienceHandbook/02.04-computation-on-arrays-aggregates.html)
 
 # ### Which was the fastest for processing multiple columns?
+
+# What does the difference in counts between `(a)` and ( `(b)` or `(c)` ) tell us about the nature of delays?
 
 # ### 2. In-database Computations
 # Please see Section "Speeding-up Data Read" (above) for more information and caveats. 
@@ -322,7 +334,7 @@ get_ipython().run_cell_magic('time', '', "df_dask['UniqueCarrier'].value_counts(
 # ![Warning](./images/warning.png) Per [bug submission](https://github.com/dask/dask/issues/442), while Dask's `value_counts()` [documentation](http://docs.dask.org/en/latest/dataframe-api.html) states that you can sort results as in `pandas`, Dask does not have that functionality implemented.
 
 # ### 4. `pySpark` + `SparkSQL`
-# Please go this [Databricks notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/7565198439641616/2474892018501188/7912616974346672/latest.html) to view `SparkSQL` code that performs counts by airline carrier for Airlines dataset.
+# Please go this [Databricks notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/2873656090782679/2252219718088020/7574928746777728/latest.html) to view `SparkSQL` code that performs counts by airline carrier for Airlines dataset.
 
 # Time duration (seconds) = 7.35 seconds (0.05 s to specify that we'll be running SparkSQL against dataset, 7.33 s to perform aggregation)
 
