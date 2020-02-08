@@ -52,6 +52,9 @@ df.shape
 get_ipython().run_cell_magic('time', '', 'df["UniqueCarrier"].value_counts(sort=False)')
 
 
+# Recode missing values to large negative # as compensated delays are large positive #s:
+df["DepDelay"] = df["DepDelay"].fillna(-9999)
+df["ArrDelay"] = df["ArrDelay"].fillna(-9999)
 # ### 1. `pandas` - Read File in Chunks
 # [Reference](https://towardsdatascience.com/why-and-how-to-use-pandas-with-large-data-9594dda2ea4c)
 
