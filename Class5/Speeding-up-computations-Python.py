@@ -195,7 +195,7 @@ delay_bin_cut.value_counts()
 # More [examples](https://realpython.com/fast-flexible-pandas/)
 # 
 
-# ### Which was the fastest for binning?
+# ### Which was the fastest for binning departure delays?
 
 # #### b. Vectorization
 
@@ -317,6 +317,8 @@ Counter(df['compensated_delays_vec_np'])
 # More examples: [here](https://engineering.upside.com/a-beginners-guide-to-optimizing-pandas-code-for-speed-c09ef2c6a4d6) and [here](https://jakevdp.github.io/PythonDataScienceHandbook/02.04-computation-on-arrays-aggregates.html)
 
 # ### Which was the fastest for processing multiple columns?
+
+# What does the difference in counts between `(a)` and ( `(b)` or `(c)` ) tell us about the nature of delays?
 
 # ### 2. In-database Computations
 # Please see Section "Speeding-up Data Read" (above) for more information and caveats. 
