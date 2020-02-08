@@ -101,6 +101,7 @@ get_ipython().run_cell_magic('time', '', "df_dask = dd.read_csv(file_name,\n    
 
 # ### 1. `pandas`
 # Suggested (non-exhaustive) list of approaches:
+# - Pre-allocate (vs `append()` to) lists, etc.
 # - Drop [unnecessary columns](https://realpython.com/python-data-cleaning-numpy-pandas/#dropping-columns-in-a-dataframe)
 # - Create a better index for [faster subsetting](https://realpython.com/python-data-cleaning-numpy-pandas/#changing-the-index-of-a-dataframe)
 # - Type optimization of variables in dataset, per [this](https://www.dataquest.io/blog/pandas-big-data/) and [this](https://medium.com/@vincentteyssier/optimizing-the-size-of-a-pandas-dataframe-for-low-memory-environment-5f07db3d72e) blog post
