@@ -183,7 +183,7 @@ delay_bin.value_counts()
 # In[59]:
 
 
-get_ipython().run_cell_magic('time', '', 'delay_bin_cut = pd.cut(df[\'DepDelay\'].fillna(-9999),\n                       bins=[-20000, -60.0, 15, 30, 60, 120, 10000],\n                       labels=["missing_delay", "no_delay", "small_delay", "medium_delay", "big_delay", "compensated_delay"],\n                       include_lowest=True,\n                       right=False)')
+get_ipython().run_cell_magic('time', '', '# Redo recoding of missing values, per \n# https://stackoverflow.com/questions/54922775/using-magic-command-timeit-n1-r1-causes-jupyter-does-not-keep-the-value-of\ndelay_bin_cut = pd.cut(df[\'DepDelay\'].fillna(-9999),\n                       bins=[-20000, -60.0, 15, 30, 60, 120, 10000],\n                       labels=["missing_delay", "no_delay", "small_delay", "medium_delay", "big_delay", "compensated_delay"],\n                       include_lowest=True,\n                       right=False)')
 
 
 # In[60]:
@@ -305,7 +305,7 @@ type(df['ArrDelay'].values)
 # In[118]:
 
 
-get_ipython().run_cell_magic('time', '', "df['compensated_delays_vec_np'] = delays_requiring_compensation_vec(df['ArrDelay'].values, \n                                                                    df['DepDelay'].values)")
+get_ipython().run_cell_magic('time', '', '# Redo recoding of missing values, per \n# https://stackoverflow.com/questions/54922775/using-magic-command-timeit-n1-r1-causes-jupyter-does-not-keep-the-value-of\ndf["DepDelay"] = df["DepDelay"].fillna(-9999)\ndf["ArrDelay"] = df["ArrDelay"].fillna(-9999)\ndf[\'compensated_delays_vec_np\'] = delays_requiring_compensation_vec(df[\'ArrDelay\'].values, \n                                                                    df[\'DepDelay\'].values)')
 
 
 # In[119]:
