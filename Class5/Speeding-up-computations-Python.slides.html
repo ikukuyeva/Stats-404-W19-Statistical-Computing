@@ -13282,8 +13282,8 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 18 s, sys: 4.35 s, total: 22.4 s
-Wall time: 1min 43s
+<pre>CPU times: user 17.9 s, sys: 3.87 s, total: 21.8 s
+Wall time: 1min 41s
 </pre>
 </div>
 </div>
@@ -13362,8 +13362,8 @@ Wall time: 1min 43s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 495 ms, sys: 15.3 ms, total: 510 ms
-Wall time: 502 ms
+<pre>CPU times: user 536 ms, sys: 17.8 ms, total: 554 ms
+Wall time: 544 ms
 </pre>
 </div>
 </div>
@@ -13376,21 +13376,21 @@ Wall time: 502 ms
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>UA     531245
-B6     229056
-WN    1140535
-OO     617756
-AA     525220
-EV     740855
+<pre>AA     525220
 YV     133976
-HA      74109
+UA     531245
+AS     147569
 FL     218162
 US     404263
-F9      79255
-DL     726879
 MQ     473140
+F9      79255
+HA      74109
+DL     726879
+WN    1140535
 VX      54742
-AS     147569
+EV     740855
+B6     229056
+OO     617756
 Name: UniqueCarrier, dtype: int64</pre>
 </div>
 
@@ -13460,8 +13460,8 @@ Name: UniqueCarrier, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 25.7 s, sys: 6.1 s, total: 31.8 s
-Wall time: 1min 44s
+<pre>CPU times: user 26.8 s, sys: 5.34 s, total: 32.1 s
+Wall time: 1min 46s
 </pre>
 </div>
 </div>
@@ -13522,7 +13522,7 @@ Wall time: 1min 44s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>987 ms ± 56.9 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<pre>986 ms ± 23 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre>
 </div>
 </div>
@@ -13556,8 +13556,8 @@ Wall time: 1min 44s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 110 ms, sys: 21.8 ms, total: 132 ms
-Wall time: 960 ms
+<pre>CPU times: user 92.4 ms, sys: 18 ms, total: 110 ms
+Wall time: 1.03 s
 </pre>
 </div>
 </div>
@@ -13681,8 +13681,8 @@ Wall time: 960 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 39.4 s, sys: 68.4 ms, total: 39.5 s
-Wall time: 39.5 s
+<pre>CPU times: user 47 s, sys: 123 ms, total: 47.1 s
+Wall time: 47.1 s
 </pre>
 </div>
 </div>
@@ -13714,8 +13714,8 @@ Wall time: 39.5 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 1.08 s, sys: 205 ms, total: 1.29 s
-Wall time: 1.29 s
+<pre>CPU times: user 1.2 s, sys: 255 ms, total: 1.45 s
+Wall time: 1.45 s
 </pre>
 </div>
 </div>
@@ -13747,7 +13747,7 @@ Wall time: 1.29 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>81.5 ms ± 365 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<pre>97.1 ms ± 1.4 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre>
 </div>
 </div>
@@ -13779,7 +13779,7 @@ Wall time: 1.29 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>3.72 s ± 8.07 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<pre>4.23 s ± 26.9 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre>
 </div>
 </div>
@@ -13851,8 +13851,8 @@ Wall time: 1.29 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 1.9 s, sys: 106 ms, total: 2 s
-Wall time: 1.55 s
+<pre>CPU times: user 2.04 s, sys: 125 ms, total: 2.17 s
+Wall time: 1.77 s
 </pre>
 </div>
 </div>
@@ -13906,6 +13906,8 @@ Name: DepDelay, dtype: int64</pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="c1"># Redo recoding of missing values, per </span>
+<span class="c1"># https://stackoverflow.com/questions/54922775/using-magic-command-timeit-n1-r1-causes-jupyter-does-not-keep-the-value-of</span>
 <span class="n">delay_bin_cut</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;DepDelay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">9999</span><span class="p">),</span>
                        <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">20000</span><span class="p">,</span> <span class="o">-</span><span class="mf">60.0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">10000</span><span class="p">],</span>
                        <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;missing_delay&quot;</span><span class="p">,</span> <span class="s2">&quot;no_delay&quot;</span><span class="p">,</span> <span class="s2">&quot;small_delay&quot;</span><span class="p">,</span> <span class="s2">&quot;medium_delay&quot;</span><span class="p">,</span> <span class="s2">&quot;big_delay&quot;</span><span class="p">,</span> <span class="s2">&quot;compensated_delay&quot;</span><span class="p">],</span>
@@ -13927,8 +13929,8 @@ Name: DepDelay, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 700 ms, sys: 51.4 ms, total: 751 ms
-Wall time: 189 ms
+<pre>CPU times: user 754 ms, sys: 61.1 ms, total: 815 ms
+Wall time: 212 ms
 </pre>
 </div>
 </div>
@@ -14069,8 +14071,8 @@ Name: DepDelay, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 1min 58s, sys: 161 ms, total: 1min 58s
-Wall time: 1min 58s
+<pre>CPU times: user 2min 14s, sys: 387 ms, total: 2min 15s
+Wall time: 2min 15s
 </pre>
 </div>
 </div>
@@ -14210,8 +14212,8 @@ False
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 48.1 ms, sys: 11.1 ms, total: 59.2 ms
-Wall time: 21.9 ms
+<pre>CPU times: user 52.6 ms, sys: 12.8 ms, total: 65.3 ms
+Wall time: 25.4 ms
 </pre>
 </div>
 </div>
@@ -14340,6 +14342,10 @@ Wall time: 21.9 ms
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="c1"># Redo recoding of missing values, per </span>
+<span class="c1"># https://stackoverflow.com/questions/54922775/using-magic-command-timeit-n1-r1-causes-jupyter-does-not-keep-the-value-of</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;DepDelay&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;DepDelay&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">9999</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;ArrDelay&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;ArrDelay&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">9999</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;compensated_delays_vec_np&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">delays_requiring_compensation_vec</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ArrDelay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
                                                                     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DepDelay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
@@ -14358,22 +14364,8 @@ Wall time: 21.9 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 15.2 ms, sys: 2.63 ms, total: 17.8 ms
-Wall time: 11.6 ms
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/anaconda3/envs/env-stats404-w20/lib/python3.7/site-packages/ipykernel_launcher.py:13: RuntimeWarning: invalid value encountered in greater_equal
-  del sys.path[0]
-/opt/anaconda3/envs/env-stats404-w20/lib/python3.7/site-packages/ipykernel_launcher.py:14: RuntimeWarning: invalid value encountered in greater_equal
-  
+<pre>CPU times: user 381 ms, sys: 56.9 ms, total: 438 ms
+Wall time: 127 ms
 </pre>
 </div>
 </div>
@@ -14476,8 +14468,8 @@ Wall time: 11.6 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 47.5 s, sys: 18.3 s, total: 1min 5s
-Wall time: 1min 41s
+<pre>CPU times: user 44 s, sys: 15.5 s, total: 59.5 s
+Wall time: 1min 45s
 </pre>
 </div>
 </div>
@@ -14619,7 +14611,7 @@ Name: UniqueCarrier, dtype: int64</pre>
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 500 out of 500 | elapsed:   28.9s finished
+[Parallel(n_jobs=1)]: Done 500 out of 500 | elapsed:   32.8s finished
 </pre>
 </div>
 </div>
@@ -14710,10 +14702,10 @@ Name: UniqueCarrier, dtype: int64</pre>
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>[Parallel(n_jobs=2)]: Using backend ThreadingBackend with 2 concurrent workers.
-[Parallel(n_jobs=2)]: Done  46 tasks      | elapsed:    1.4s
-[Parallel(n_jobs=2)]: Done 196 tasks      | elapsed:    5.8s
-[Parallel(n_jobs=2)]: Done 446 tasks      | elapsed:   13.2s
-[Parallel(n_jobs=2)]: Done 500 out of 500 | elapsed:   14.8s finished
+[Parallel(n_jobs=2)]: Done  46 tasks      | elapsed:    1.8s
+[Parallel(n_jobs=2)]: Done 196 tasks      | elapsed:    7.2s
+[Parallel(n_jobs=2)]: Done 446 tasks      | elapsed:   16.3s
+[Parallel(n_jobs=2)]: Done 500 out of 500 | elapsed:   18.1s finished
 </pre>
 </div>
 </div>
@@ -14759,10 +14751,10 @@ Name: UniqueCarrier, dtype: int64</pre>
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>[Parallel(n_jobs=4)]: Using backend ThreadingBackend with 4 concurrent workers.
-[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    0.7s
-[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:    3.2s
-[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed:    7.2s
-[Parallel(n_jobs=4)]: Done 500 out of 500 | elapsed:    8.1s finished
+[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    0.9s
+[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:    3.9s
+[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed:    8.9s
+[Parallel(n_jobs=4)]: Done 500 out of 500 | elapsed:   10.1s finished
 </pre>
 </div>
 </div>
@@ -14853,19 +14845,19 @@ Name: UniqueCarrier, dtype: int64</pre>
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done  50 out of  50 | elapsed:    2.9s finished
+[Parallel(n_jobs=1)]: Done  50 out of  50 | elapsed:    3.4s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 100 out of 100 | elapsed:    5.8s finished
+[Parallel(n_jobs=1)]: Done 100 out of 100 | elapsed:    6.7s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 250 out of 250 | elapsed:   14.5s finished
+[Parallel(n_jobs=1)]: Done 250 out of 250 | elapsed:   15.7s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 500 out of 500 | elapsed:   28.8s finished
+[Parallel(n_jobs=1)]: Done 500 out of 500 | elapsed:   30.7s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 1000 out of 1000 | elapsed:   57.7s finished
+[Parallel(n_jobs=1)]: Done 1000 out of 1000 | elapsed:  1.1min finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 1500 out of 1500 | elapsed:  1.4min finished
+[Parallel(n_jobs=1)]: Done 1500 out of 1500 | elapsed:  1.6min finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 2500 out of 2500 | elapsed:  2.4min finished
+[Parallel(n_jobs=1)]: Done 2500 out of 2500 | elapsed:  2.9min finished
 </pre>
 </div>
 </div>
@@ -14909,17 +14901,17 @@ Name: UniqueCarrier, dtype: int64</pre>
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done  50 out of  50 | elapsed:    3.7s finished
+[Parallel(n_jobs=1)]: Done  50 out of  50 | elapsed:    5.2s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 100 out of 100 | elapsed:    7.5s finished
+[Parallel(n_jobs=1)]: Done 100 out of 100 | elapsed:   10.1s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 250 out of 250 | elapsed:   18.2s finished
+[Parallel(n_jobs=1)]: Done 250 out of 250 | elapsed:   24.3s finished
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done 500 out of 500 | elapsed:   36.0s finished
-[Parallel(n_jobs=1)]: Done 1000 out of 1000 | elapsed:  1.1min finished
-[Parallel(n_jobs=1)]: Done 1500 out of 1500 | elapsed:  1.6min finished
-[Parallel(n_jobs=1)]: Done 2500 out of 2500 | elapsed:  2.6min finished
-[Parallel(n_jobs=4)]: Done   7 out of   7 | elapsed:  3.0min finished
+[Parallel(n_jobs=1)]: Done 500 out of 500 | elapsed:   47.4s finished
+[Parallel(n_jobs=1)]: Done 1000 out of 1000 | elapsed:  1.5min finished
+[Parallel(n_jobs=1)]: Done 1500 out of 1500 | elapsed:  2.0min finished
+[Parallel(n_jobs=1)]: Done 2500 out of 2500 | elapsed:  3.1min finished
+[Parallel(n_jobs=4)]: Done   7 out of   7 | elapsed:  3.8min finished
 </pre>
 </div>
 </div>
