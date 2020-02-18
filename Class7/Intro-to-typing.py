@@ -73,9 +73,9 @@ if __name__ == '__main__':
     df = pd.read_csv(filepath_or_buffer=file_name,
                      encoding='latin-1',
                      nrows=100)
-    # Replace times of cancelled flights with value 9999:
-    df['DepDelay'] = df['DepDelay'].fillna(9999)
-    df['ArrDelay'] = df['ArrDelay'].fillna(9999)
+    # Replace times of cancelled flights with value -9999:
+    df['DepDelay'] = df['DepDelay'].fillna(-9999)
+    df['ArrDelay'] = df['ArrDelay'].fillna(-9999)
 
     df['compensated_delays'] = df[['ArrDelay', 'DepDelay']].apply(
         lambda row: delays_requiring_compensation(row[0], row[1]), axis=1)
