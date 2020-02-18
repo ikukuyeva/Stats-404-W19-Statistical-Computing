@@ -9,8 +9,9 @@
 # - s3f3 documentation: https://s3fs.readthedocs.io/en/latest/?badge=latest
 #   Note: s3fs is a wrapper for boto3
 
-import boto3
 import logging
+
+import boto3
 import joblib
 import pandas as pd
 import s3fs
