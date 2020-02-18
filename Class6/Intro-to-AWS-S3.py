@@ -22,6 +22,7 @@ logging.basicConfig(level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
 
 BUCKET_NAME = "stats404-project"
+FILE_NAME = "https://s3.amazonaws.com/h2o-airlines-unpacked/year1987.csv"
 ### ---------------------------------------------------------------------------
 ### --- Part 1: Connect to S3 Bucket on AWS
 ### ---------------------------------------------------------------------------
@@ -50,8 +51,7 @@ LOGGER.info("--- Part 2: Upload CSV File to S3 Bucket")
 
 # --- Create a data set to upload -- or use one for your project:
 LOGGER.info("    Download 1000 rows of Airline flight paths")
-file_name = "https://s3.amazonaws.com/h2o-airlines-unpacked/year1987.csv"
-df = pd.read_csv(filepath_or_buffer=file_name,
+df = pd.read_csv(filepath_or_buffer=FILE_NAME,
                  encoding='latin-1',
                  nrows=1000
                 )
