@@ -1,13 +1,12 @@
-### ---------------------------------------------------------------------------
-### --- Introduction to AWS Simple Cloud Storage Service (S3)
-### ---------------------------------------------------------------------------
+"""Module to serve as introduction to AWS Simple Cloud Storage Service (S3)
 
-# Prerequisites:
-# - Installation of `boto3`
-# - Creating and adding AWS credentials to `.aws/credentials` file
-# - Creating and adding AWS region for computing resources in `.aws/config` file
-# - s3f3 documentation: https://s3fs.readthedocs.io/en/latest/?badge=latest
-#   Note: s3fs is a wrapper for boto3
+   Prerequisites:
+   - Installation of `boto3`
+   - Creating and adding AWS credentials to `.aws/credentials` file
+   - Creating and adding AWS region for computing resources in `.aws/config` file
+   - s3f3 documentation: https://s3fs.readthedocs.io/en/latest/?badge=latest
+   - Note: s3fs is a wrapper for boto3
+"""
 
 import logging
 
@@ -31,7 +30,7 @@ FILE_NAME = "https://s3.amazonaws.com/h2o-airlines-unpacked/year1987.csv"
 ### ---------------------------------------------------------------------------
 LOGGER.info("--- Part 1: Connect to S3 Bucket on AWS")
 
-# Approach 1: 
+# Approach 1:
 s3 = boto3.resource('s3')
 
 # Approach 2:
@@ -61,7 +60,7 @@ df = pd.read_csv(filepath_or_buffer=FILE_NAME,
 
 # --- Specify name of file to be created on s3, to store this CSV:
 LOGGER.info(f"    Uploading file: {KEY_NAME_DATA} to S3 bucket = {BUCKET_NAME}")
-with s3_fs.open(f"{BUCKET_NAME}/{KEY_NAME_DATA}","w") as file:
+with s3_fs.open(f"{BUCKET_NAME}/{KEY_NAME_DATA}", "w") as file:
     df.to_csv(file)
 LOGGER.info(f"    Uploaded file: {KEY_NAME_DATA} to S3 bucket = {BUCKET_NAME}")
 
@@ -79,7 +78,7 @@ rf_dict = joblib.load("../Class4/rf.joblib")
 
 # --- Specify name of file to be created on s3, to store this model object:
 LOGGER.info(f"    Uploading file: {KEY_NAME_MODEL} to S3 bucket = {BUCKET_NAME}")
-with s3_fs.open(f"{BUCKET_NAME}/{KEY_NAME_MODEL}","wb") as file:
+with s3_fs.open(f"{BUCKET_NAME}/{KEY_NAME_MODEL}", "wb") as file:
     joblib.dump(rf_dict[500], file)
 LOGGER.info(f"    Uploaded file: {KEY_NAME_MODEL} to S3 bucket = {BUCKET_NAME}")
 
