@@ -6,14 +6,13 @@
 # - Installation of `boto3`
 # - Creating and adding AWS credentials to `.aws/credentials` file
 # - Creating and adding AWS region for computing resources in `.aws/config` file
+# - s3f3 documentation: https://s3fs.readthedocs.io/en/latest/?badge=latest
+#   Note: s3fs is a wrapper for boto3
 
 import boto3
 import logging
 import joblib
 import pandas as pd
-
-# Documentation: https://s3fs.readthedocs.io/en/latest/?badge=latest
-# Note: s3fs is a wrapper for boto3
 import s3fs
 
 logging.basicConfig(level=logging.INFO)
