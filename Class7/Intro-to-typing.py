@@ -10,15 +10,15 @@ def bin_departure_delays(delay_min: float) -> str:
     """Fcn to bin flight delays via if-else statements, rather than cut()
        function, to compare performance of computation in Class 5.
     """
-    if delay_min <= 15:
+    if (delay_min >= -60.0) & (delay_min < 15.0):
         return "no_delay"
-    elif (delay_min > 15) & (delay_min <= 30):
+    elif (delay_min >= 15.0) & (delay_min < 30.0):
         return "small_delay"
-    elif (delay_min > 30) & (delay_min <= 60):
+    elif (delay_min >= 30.0) & (delay_min < 60.0):
         return "medium_delay"
-    elif (delay_min > 60) & (delay_min <= 120):
+    elif (delay_min >= 60.0) & (delay_min < 120.0):
         return "big_delay"
-    elif (delay_min > 120):
+    elif (delay_min >= 120.0):
         return "compensated_delay"
     else:
         return "missing_delay"
