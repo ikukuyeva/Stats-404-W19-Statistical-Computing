@@ -22,6 +22,7 @@ logging.basicConfig(level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
 
 BUCKET_NAME = "stats404-project"
+KEY_NAME_DATA = "airlines_data_1987_1000rows.csv"
 FILE_NAME = "https://s3.amazonaws.com/h2o-airlines-unpacked/year1987.csv"
 ### ---------------------------------------------------------------------------
 ### --- Part 1: Connect to S3 Bucket on AWS
@@ -57,17 +58,14 @@ df = pd.read_csv(filepath_or_buffer=FILE_NAME,
                 )
 
 # --- Specify name of file to be created on s3, to store this CSV:
-key_name = "airlines_data_1987_1000rows.csv"
-
-LOGGER.info(f"    Uploading file: {key_name} to S3 bucket = {BUCKET_NAME}")
-with s3_fs.open(f"{BUCKET_NAME}/{key_name}","w") as file:
+LOGGER.info(f"    Uploading file: {KEY_NAME_DATA} to S3 bucket = {BUCKET_NAME}")
+with s3_fs.open(f"{BUCKET_NAME}/{KEY_NAME_DATA}","w") as file:
     df.to_csv(file)
-LOGGER.info(f"    Uploaded file: {key_name} to S3 bucket = {BUCKET_NAME}")
+LOGGER.info(f"    Uploaded file: {KEY_NAME_DATA} to S3 bucket = {BUCKET_NAME}")
 
 LOGGER.info(f"List of objects in bucket {BUCKET_NAME} now:")
 for file in s3.Bucket(BUCKET_NAME).objects.all():
     LOGGER.info(f"    {file.key}")
-
 
 ### ---------------------------------------------------------------------------
 ### --- Part 3: Upload Model Object to S3 Bucket
