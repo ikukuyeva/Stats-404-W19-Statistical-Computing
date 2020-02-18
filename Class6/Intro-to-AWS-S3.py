@@ -23,7 +23,9 @@ LOGGER = logging.getLogger(__name__)
 
 BUCKET_NAME = "stats404-project"
 KEY_NAME_DATA = "airlines_data_1987_1000rows.csv"
+KEY_NAME_MODEL = "rf_Fashion_MNIST_500_trees.joblib"
 FILE_NAME = "https://s3.amazonaws.com/h2o-airlines-unpacked/year1987.csv"
+
 ### ---------------------------------------------------------------------------
 ### --- Part 1: Connect to S3 Bucket on AWS
 ### ---------------------------------------------------------------------------
@@ -76,12 +78,10 @@ LOGGER.info("    Loading RF model object")
 rf_dict = joblib.load("../Class4/rf.joblib")
 
 # --- Specify name of file to be created on s3, to store this model object:
-key_name = "rf_Fashion_MNIST_500_trees.joblib"
-
-LOGGER.info(f"    Uploading file: {key_name} to S3 bucket = {BUCKET_NAME}")
-with s3_fs.open(f"{BUCKET_NAME}/{key_name}","wb") as file:
+LOGGER.info(f"    Uploading file: {KEY_NAME_MODEL} to S3 bucket = {BUCKET_NAME}")
+with s3_fs.open(f"{BUCKET_NAME}/{KEY_NAME_MODEL}","wb") as file:
     joblib.dump(rf_dict[500], file)
-LOGGER.info(f"    Uploaded file: {key_name} to S3 bucket = {BUCKET_NAME}")
+LOGGER.info(f"    Uploaded file: {KEY_NAME_MODEL} to S3 bucket = {BUCKET_NAME}")
 
 LOGGER.info(f"List of objects in bucket {BUCKET_NAME} now:")
 for file in s3.Bucket(BUCKET_NAME).objects.all():
