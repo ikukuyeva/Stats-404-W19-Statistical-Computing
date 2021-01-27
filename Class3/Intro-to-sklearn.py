@@ -97,6 +97,14 @@ Counter(df['UniqueCarrier'])
 
 
 # ## Step 4: Data Splits (later today)
+# **Note**: It is best practice to:
+# - *first* split the data, 
+# - *then* transform variables on training data set and iron-out the POC model, 
+# - *before* moving on to test model on test data set **once**
+# 
+# Because we're *only* transforming TOD, DOW and outcome on rules we decided *a priori*, this is OK. 
+# 
+# **Warning**: If our outcome variable was total compensation for plane delayed, which depended on size of place, we would have leakage if we created a binned outcome variable based on seeing *both* training and test set first. 
 
 # ## Step 5: Feature Engineering for Baseline Model (v0)
 
