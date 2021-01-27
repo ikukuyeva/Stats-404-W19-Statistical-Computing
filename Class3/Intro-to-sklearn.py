@@ -97,6 +97,14 @@ Counter(df['UniqueCarrier'])
 
 
 # ## Step 4: Data Splits (later today)
+# **Note**: It is best practice to:
+# - *first* split the data, 
+# - *then* transform variables on training data set and iron-out the POC model, 
+# - *before* moving on to test model on test data set **once**
+# 
+# Because we're *only* transforming TOD, DOW and outcome on rules we decided *a priori*, this is OK. 
+# 
+# **Warning**: If our outcome variable was total compensation for plane delayed, which depended on size of place, we would have leakage if we created a binned outcome variable based on seeing *both* training and test set first. 
 
 # ## Step 5: Feature Engineering for Baseline Model (v0)
 
@@ -450,7 +458,7 @@ coef_df.T
 # tend to increase odds of compensated delays for passengers
 # - Friday departures also tend to increase odds of compensated delays for passengers
 
-# **Takeaways/Recommendations to your airline client?**
+# **How business will use (predicted) model to make decision(s):** e.g. Takeaways/Recommendations to your airline client?
 # 
 
 # **As a passenger, what's the best time to travel?**
@@ -572,6 +580,8 @@ f1_score(y_true=y_valid,
 
 
 # How did out-of-sample compare?
+
+# If this were a promising model, **what would the metric monitoring** look like?
 
 # ## Step 9: Determine Next Steps
 
