@@ -13215,16 +13215,16 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Counter</span>
 <span class="kn">import</span> <span class="nn">inspect</span>
 
-<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">dump</span><span class="p">,</span> <span class="n">load</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="k">import</span> <span class="n">dump</span><span class="p">,</span> <span class="n">load</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">sklearn</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">f1_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">f1_score</span>
 </pre></div>
 
     </div>
@@ -13782,7 +13782,15 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Step-4:-Data-Splits-(later-today)">Step 4: Data Splits (later today)<a class="anchor-link" href="#Step-4:-Data-Splits-(later-today)">&#182;</a></h2>
+<h2 id="Step-4:-Data-Splits-(later-today)">Step 4: Data Splits (later today)<a class="anchor-link" href="#Step-4:-Data-Splits-(later-today)">&#182;</a></h2><p><strong>Note</strong>: It is best practice to:</p>
+<ul>
+<li><em>first</em> split the data, </li>
+<li><em>then</em> transform variables on training data set and iron-out the POC model, </li>
+<li><em>before</em> moving on to test model on test data set <strong>once</strong></li>
+</ul>
+<p>Because we're <em>only</em> transforming TOD, DOW and outcome on rules we decided <em>a priori</em>, this is OK.</p>
+<p><strong>Warning</strong>: If our outcome variable was total compensation for plane delayed, which depended on size of place, we would have leakage if we created a binned outcome variable based on seeing <em>both</em> training and test set first.</p>
+
 </div>
 </div>
 </div></section></section><section><section>
@@ -15807,7 +15815,7 @@ tend to increase odds of compensated delays for passengers</li>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Takeaways/Recommendations to your airline client?</strong></p>
+<p><strong>How business will use (predicted) model to make decision(s):</strong> e.g. Takeaways/Recommendations to your airline client?</p>
 
 </div>
 </div>
@@ -16468,6 +16476,14 @@ tend to increase odds of compensated delays for passengers</li>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>How did out-of-sample compare?</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If this were a promising model, <strong>what would the metric monitoring</strong> look like?</p>
 
 </div>
 </div>
