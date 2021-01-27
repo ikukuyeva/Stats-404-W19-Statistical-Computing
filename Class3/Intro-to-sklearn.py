@@ -458,7 +458,7 @@ coef_df.T
 # tend to increase odds of compensated delays for passengers
 # - Friday departures also tend to increase odds of compensated delays for passengers
 
-# **Takeaways/Recommendations to your airline client?**
+# **How business will use (predicted) model to make decision(s):** e.g. Takeaways/Recommendations to your airline client?
 # 
 
 # **As a passenger, what's the best time to travel?**
@@ -580,6 +580,8 @@ f1_score(y_true=y_valid,
 
 
 # How did out-of-sample compare?
+
+# If this were a promising model, **what would the metric monitoring** look like?
 
 # ## Step 9: Determine Next Steps
 
