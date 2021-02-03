@@ -1,10 +1,9 @@
 # UCLA Stats 404 - Statistical Computing and Programming
 
 ## Overview
-- UCLA [Course](https://sa.ucla.edu/ro/Public/SOC/Results/ClassDetail?term_cd=20W&subj_area_cd=STATS%20%20&crs_catlg_no=0404%20%20%20%20&class_id=663608200&class_no=%20001%20%20) Listing (Python)
+- UCLA [Course](https://sa.ucla.edu/ro/Public/SOC/Results/ClassDetail?term_cd=21W&subj_area_cd=STATS%20%20&crs_catlg_no=0404%20%20%20%20&class_id=663608200&class_no=%20001%20%20) Listing (Python)
 - [Syllabus](http://bit.ly/2qFGCQ8) 
-- [Class](http://bit.ly/Python-0-to-Prod) website
-- This [GitHub](https://github.com/ikukuyeva/Stats-404-W19-Statistical-Computing) repository with code examples for each lecture
+- [Class](https://ccle.ucla.edu/course/view/21W-STATS404-1) website
 
 
 ## Lectures
