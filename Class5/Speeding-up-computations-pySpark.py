@@ -1,21 +1,16 @@
 # Databricks notebook source
-import urllib.request
+# Per https://stackoverflow.com/questions/57014043/reading-data-from-url-using-spark-databricks-platform
+from pyspark import SparkFiles
 
 # COMMAND ----------
 
-file_name = "https://s3.amazonaws.com/h2o-airlines-unpacked/year2012.csv"
+URL = "https://s3.amazonaws.com/h2o-airlines-unpacked/year2012.csv"
 
 # COMMAND ----------
 
-### --- Read-in dataset by first moving file to cluster's local storage
-# Download file, per https://docs.databricks.com/_static/notebooks/zip-files-python.html:
-urllib.request.urlretrieve(file_name, '/tmp/df.csv')
-
-# Move file per to DBFS, per https://docs.databricks.com/_static/notebooks/zip-files-python.html:
-dbutils.fs.mv("file:/tmp/df.csv", "dbfs:/data/df.csv")
-
-# Per https://spark.apache.org/docs/2.2.0/sql-programming-guide.html#datasets-and-dataframes, 'spark' is an existing SparkSession:
-df_spark = spark.read.format('csv').options(header='true', inferSchema='true').load('dbfs:/data/df.csv')
+# Per https://stackoverflow.com/questions/57014043/reading-data-from-url-using-spark-databricks-platform
+spark.sparkContext.addFile(url)
+df_spark = spark.read.csv("file://"+SparkFiles.get("year2012.csv"), header=True, inferSchema= True)
 
 # COMMAND ----------
 

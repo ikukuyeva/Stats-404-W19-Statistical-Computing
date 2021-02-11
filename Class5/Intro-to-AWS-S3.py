@@ -60,7 +60,7 @@ for file in s3.Bucket(bucket_name).objects.all():
 
 
 # --- Step 1: Create a data set to upload -- or use one for your project:
-file_name = "https://s3.amazonaws.com/h2o-airlines-unpacked/year1987.csv"
+file_name = "http://s3.amazonaws.com/h2o-airlines-unpacked/year2012.csv"
 df = pd.read_csv(filepath_or_buffer=file_name,
                  encoding='latin-1',
                  nrows=1000)
@@ -71,7 +71,7 @@ df = pd.read_csv(filepath_or_buffer=file_name,
 
 
 # --- Step 2: Specify name of file to be created on s3, to store this CSV:
-key_name = "airlines_data_1987_1000rows.csv"
+key_name = "airlines_data_2012_1000rows.csv"
 
 # --- Step 3: Upload file to bucket and file name specified: 
 with s3_fs.open(f"{bucket_name}/{key_name}","w") as file:
