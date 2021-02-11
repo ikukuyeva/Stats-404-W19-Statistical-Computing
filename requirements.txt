@@ -3,8 +3,9 @@ pandas==1.2.2
 matplotlib==3.3.2
 pandasql==0.7.3
 scikit-learn==0.24.1
-joblib==0.13.1
+joblib==1.0.1
 boto3==1.9.91
+botocore==1.12.253
 s3fs==0.2.0
 dask==2021.2.0
 dask[dataframe]
