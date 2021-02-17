@@ -26,14 +26,14 @@ KEY_NAME_MODEL = "rf_Fashion_MNIST_500_trees.joblib"
 FILE_NAME = "https://s3.amazonaws.com/h2o-airlines-unpacked/year1987.csv"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ### ---------------------------------------------------------------------------
     ### --- Part 1: Connect to S3 Bucket on AWS
     ### ---------------------------------------------------------------------------
     LOGGER.info("--- Part 1: Connect to S3 Bucket on AWS")
 
     # Approach 1:
-    s3 = boto3.resource('s3')
+    s3 = boto3.resource("s3")
 
     # Approach 2:
     # - anon=False: use AWS credentials to connect to file system, not as an anonymous user
@@ -55,10 +55,7 @@ if __name__ == '__main__':
 
     # --- Create a data set to upload -- or use one for your project:
     LOGGER.info("    Download 1000 rows of Airline flight paths")
-    df = pd.read_csv(filepath_or_buffer=FILE_NAME,
-                     encoding='latin-1',
-                     nrows=1000
-                    )
+    df = pd.read_csv(filepath_or_buffer=FILE_NAME, encoding="latin-1", nrows=1000)
 
     # --- Specify name of file to be created on s3, to store this CSV:
     LOGGER.info(f"    Uploading file: {KEY_NAME_DATA} to S3 bucket = {BUCKET_NAME}")
