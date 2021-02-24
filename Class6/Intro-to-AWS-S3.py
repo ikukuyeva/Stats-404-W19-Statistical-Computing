@@ -21,9 +21,9 @@ logging.basicConfig(level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
 
 BUCKET_NAME = "stats404-project"
-KEY_NAME_DATA = "airlines_data_1987_1000rows.csv"
+KEY_NAME_DATA = "airlines_data_2012_1000rows.csv"
 KEY_NAME_MODEL = "rf_Fashion_MNIST_500_trees.joblib"
-FILE_NAME = "https://s3.amazonaws.com/h2o-airlines-unpacked/year1987.csv"
+FILE_NAME = "http://s3.amazonaws.com/h2o-airlines-unpacked/year2012.csv"
 
 
 if __name__ == '__main__':
